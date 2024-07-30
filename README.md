@@ -1,9 +1,10 @@
 *termux*
 automatico:
+
 poner uno por uno
 
+```bash
 termux-setup-storage
-
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/nevi67/VermeilBot-MD/main/install22.sh | bash
 
 manual:
