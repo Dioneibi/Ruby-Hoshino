@@ -6,6 +6,8 @@ poner uno por uno
 
 ```bash
 termux-setup-storage
+```
+```bash
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/nevi67/VermeilBot-MD/main/install22.sh | bash
 ```
 
@@ -14,9 +16,17 @@ poner uno por uno
 
 ```bash
 termux-setup-storage
+```
+```bash
 apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+```bash
 git clone https://github.com/nevi67/VermeilBot-MD && cd VermeilBot-MD
+```
+```bash
 yarn install && npm install
+```
+```bash
 npm start
 ```
 
