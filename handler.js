@@ -255,20 +255,15 @@ autobio: false,
 console.error(e)
 }
 
-const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-const isOwner = isROwner || m.fromMe
-const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-//const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
-if (opts['queque'] && m.text && !(isMods || isPrems)) {
-let queque = this.msgqueque, time = 1000 * 5
-const previousID = queque[queque.length - 1]
-queque.push(m.id || m.key.id)
-setInterval(async function () {
-if (queque.indexOf(previousID) === -1) clearInterval(this)
-await delay(time)
-}, time)
-}
+const isROwner = [
+    conn.decodeJid(global.conn.user.id), 
+    ...global.owner.map(([number]) => String(number)) // Asegúrate de que sea una cadena
+].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
+
+const isOwner = isROwner || m.fromMe;
+const isMods = isOwner || global.mods.map(v => String(v)).map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
+
+const isPrems = isROwner || (global.db.data.users[m.sender] && global.db.data.users[m.sender].premiumTime > 0);
 
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
