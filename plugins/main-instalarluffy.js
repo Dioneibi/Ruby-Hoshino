@@ -1,6 +1,6 @@
 var handler  = async (m, { conn }) => {
 
-let texto = `🚩 *Instalación de LuffyBot*
+let texto = `🚩 *Instalación de VermeilBot*
 
 ⬡ Dudas: ${creador}
 ⬡ Tutoríal: *¡Pronto!*
@@ -13,15 +13,13 @@ apt-get update -y && apt-get upgrade -y
 
 pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn
 
-git clone https://github.com/OfcDiego/LuffyBot-MD && cd LuffyBot-MD && yarn install && npm install 
+git clone https://github.com/nevi67/VermeilBot-MD && cd VermeilBot-MD && yarn install && npm install 
 
 ls
 
 npm start
 
 _Utilice "comandos" para enviarle los comandos uno por uno 🚩_
-
-_Utilice "cafirexos" para enviarle la instalación por el host *Cafirexos* 🚩_`
 
 conn.reply(m.chat, texto, m, rcanal )
 
@@ -34,7 +32,7 @@ m.reply('apt-get update -y && apt-get upgrade -y')
 await delay(1000 * 1)
 m.reply('pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn')
 await delay(1000 * 1)
-m.reply('git clone https://github.com/OfcDiego/LuffyBot-MD && cd LuffyBot-MD && yarn install && npm install ')
+m.reply('git clone https://github.com/nevi67/VermeilBot-MD && cd VermeilBot-MD && yarn install && npm install ')
 await delay(1000 * 1)
 m.reply('ls')
 await delay(1000 * 1)
