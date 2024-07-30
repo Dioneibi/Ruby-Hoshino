@@ -1,0 +1,18 @@
+{
+"name": "VermeilBot-MD",
+"website": "https://github.com/nevi67",
+"description": "Super Bot De WhatsApp",
+"repository": "https://github.com/nevi67/VermeilBot-MD",
+"logo": "https://th.bing.com/th/id/OIP.VFk8EIDd2Yw0ystM0hAVugHaEK?rs=1&pid=ImgDetMain",
+"success_url": "https://github.com/nevi67/VermeilBot-MD",
+"keywords": [
+"nodejs", "heroku", "bot", "spanish", "english", "indonesian", "arab", "portuguese", "italian", "french", "whatsapp",
+"termux", "superbot", "multi-device", "md", "official", "javascript", "luffy"],
+"image": "heroku/nodejs",
+"buildpacks": [
+{ "url": "heroku/nodejs" },
+{ "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest" },
+{ "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git" },
+{ "url": "https://github.com/bogini/heroku-buildpack-graphicsmagick" }    
+]
+}
