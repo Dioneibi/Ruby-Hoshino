@@ -24,6 +24,9 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 git clone https://github.com/nevi67/VermeilBot-MD && cd VermeilBot-MD
 ```
 ```bash
+mkdir tmp
+```
+```bash
 yarn install && npm install
 ```
 ```bash
