@@ -30,9 +30,10 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-𓏲꯭֟፝੭ ꯭⌑(꯭𝐕).꯭𝐄.꯭𝐑.꯭𝐌.꯭𝐄.꯭𝐈.꯭𝐋.꯭𓏲꯭֟፝੭
-▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭
+  before: `*･゜ﾟ･*:.｡..｡.:*･゜ﾟ･*:.｡. .｡.:*･゜
+𓏲꯭֟፝੭ ꯭⌑ ( V . E . R . M . E . I . L ) ꯭ 𓏲꯭֟፝੭
+*･゜ﾟ･*:.｡..｡.:*･゜ﾟ･*:.｡. .｡.:*･゜
+
 
 "hola, mi nombre es *vermeil* %greeting"
 
@@ -44,7 +45,7 @@ const defaultMenu = {
 ║ ☆ 📚 *B𝖠𝖨𝖫𝖤𝖸𝖲*: *𝖬𝖴𝖫𝖳𝖨 𝖣𝖤𝖵𝖨𝖢𝖤*
 ║ ☆ ⏱️ *𝖳𝖨𝖤𝖬𝖯𝖮* *𝖠𝖢𝖳𝖨𝖵𝖮*: %muptime
 ║ ☆ 👤 *𝖴𝖲𝖴𝖠𝖱𝖨𝖮𝖲* *𝖱𝖤𝖦𝖨𝖲𝖳𝖱𝖠𝖣𝖮𝖲*: %totalreg
-║ ☆ 👩‍💻 *𝖢𝖱𝖤𝖠𝖣𝖮𝖱*: [𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑](https://Wa.me/18294868853)
+║ ☆ 👩‍💻 *𝖢𝖱𝖤𝖠𝖣𝖮𝖱*: [𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑](https://Wa.me/18096758983)
 ╚════════════════════════╝
 
 ╔═══════⩽✦✰✦⩾═══════╗
@@ -185,7 +186,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
     let rcanal = "https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy";
   
   
-    await conn.reply(m.chat, '*ꪹ͜𓂃⌛͡𝗘𝗻𝘃𝗶𝗮𝗻𝗱𝗼 𝗠𝗲𝗻𝘂 𝗱𝗲𝗹 𝗕𝗼𝘁....𓏲੭*', fkontak, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: '🍟 ¡Super Bot De WhatsApp!', sourceUrl: redes, thumbnail: icons }}})
+    await conn.reply(m.chat, '*ꪹ͜𓂃⌛͡𝗘𝗻𝘃𝗶𝗮𝗻𝗱𝗼 𝗠𝗲𝗻𝘂 𝗱𝗲𝗹 𝗕𝗼𝘁....𓏲੭*', fkontak, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: ' 🌟!𝐃𝐢𝐬𝐟𝐫𝐮𝐭𝐚 𝐝𝐞 𝐯𝐞𝐫𝐦𝐞𝐢𝐥-𝐌𝐃!🌟', sourceUrl: redes, thumbnail: icons }}})
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
@@ -206,7 +207,7 @@ await conn.sendMessage(
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: '★彡『 𝙏𝙖𝙩𝙨𝙪𝙢𝙖𝙠𝙞-𝙈𝘿 』彡★',
+      title: '★彡『 𝙑𝙚𝙧𝙢𝙚𝙞𝙡𝘽𝙤𝙩-𝙈𝘿 』彡★',
       body: dev,
       thumbnailUrl: icono,
       sourceUrl: redes,
