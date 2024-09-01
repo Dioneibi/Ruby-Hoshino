@@ -30,8 +30,7 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꯭⌑(꯭𝐓).꯭𝐀.꯭𝐓.꯭𝐬.꯭𝐮.꯭𝐦.꯭𝐚.꯭𝐤.꯭𝐢.꯭ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
+  before: `𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꯭⌑(꯭𝐓).꯭𝐀.꯭𝐓.꯭𝐬.꯭𝐮.꯭𝐦.꯭𝐚.꯭𝐤.꯭𝐢.꯭ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
 ▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭
 
 
@@ -190,7 +189,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
-await m.react('💥') 
+await m.react('💖') 
 
 //await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
 
@@ -270,3 +269,4 @@ switch(hour){
   case 23: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌃'; break;
 }
 var greeting = hour;
+    
