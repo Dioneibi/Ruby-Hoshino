@@ -24,7 +24,7 @@ global.prems = []
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
 global.packname = '໒꒰ྀི«★🌪️𝗧𝗮𝘁𝘀𝘂𝗺𝗮𝗸𝗶-𝗠𝗗🌪️★»ྀི১'
-global.author = '🍫☆  ήⓔ𝕧𝓘Ꮆ𝐚Ⓜ𝑒𝔯  ★♧'
+global.author = '⋆.˚ＤＩＯＮＥＩＢＩ🦋༘⋆'
 global.wm = '🅽🅴🆅🅸🅶🅰🅼🅴🆁'
 global.titulowm = '𝓥𝓮𝓻𝓶𝓮𝓲𝓵𝓑𝓸𝓽-𝓜𝓓'
 global.titulowm2 = 'Dioneibi'
