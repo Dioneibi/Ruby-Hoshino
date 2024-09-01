@@ -1,13 +1,15 @@
 import fetch from 'node-fetch';
+
 const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
   if (!db.data.chats[m.chat].modohorny && m.isGroup) {
     // Enviar el archivo de audio en lugar del mensaje de texto
-    const audioPath = './media/Medasascopierdete.mp';
-    await conn.sendFile(m.chat, audioPath, 'Medasascopierdete.mp3', null, m, true, { type: 'audioMessage', ptt: true });
-    return;
+    await conn.sendFile(m.chat, './media/Medasascopierdete.mp3', 'Medasascopierdete.mp3', null, m, true, { type: 'audioMessage', ptt: true });
+    return; // Detener la ejecución del código después de enviar el audio
   }
+  
   try {
     const pp = imagen3;
+    // let vn = './media/menu.mp3'
     const d = new Date(new Date + 3600000);
     const locale = 'es';
     const week = d.toLocaleDateString(locale, {weekday: 'long'});
@@ -83,5 +85,5 @@ function clockString(ms) {
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
   const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
   return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
-  }
-        
+      }
+  
