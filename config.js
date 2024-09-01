@@ -38,6 +38,7 @@ global.vs = '2.0.2'
 global.imagen1 = fs.readFileSync('./Menu.jpg')
 global.imagen2 = fs.readFileSync('./Menu2.jpg')
 global.imagen3 = fs.readFileSync('./Menu3.jpg')
+global.imagen4 = fs.readFileSync('./Menu4.jpg')
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
 global.gp1 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'
