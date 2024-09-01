@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
-
 const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
   if (!db.data.chats[m.chat].modohorny && m.isGroup) {
     const audioPath = './media/Medasascopierdete.mp3';
