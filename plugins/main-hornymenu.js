@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import fs from 'fs';
 
 const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
   if (!db.data.chats[m.chat].modohorny && m.isGroup) {
@@ -59,10 +60,10 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
       const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'}};
       if (m.isGroup) {
         conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
-        conn.sendMessage(m.chat, { audio: { url: audioUrl }, mimetype: 'audio/mp4' }, {quoted: fkontak2});
+        conn.sendMessage(m.chat, { audio: fs.readFileSync(audioPath), mimetype: 'audio/mp4' }, {quoted: fkontak2});
       } else {
         conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
-        conn.sendMessage(m.chat, { audio: { url: audioUrl }, mimetype: 'audio/mp4' }, {quoted: fkontak2});
+        conn.sendMessage(m.chat, { audio: fs.readFileSync(audioPath), mimetype: 'audio/mp4' }, {quoted: fkontak2});
       }
     } catch {
       conn.reply(m.chat, '💥 *¡Ocurrió Un Error!*', m);
@@ -70,8 +71,8 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
   }
 };
 
-handler.tags = ['main']
-handler.help = ['hornymenu']
+handler.tags = ['main'];
+handler.help = ['hornymenu'];
 handler.command = ['menuhorny', 'hornymenu'];
 handler.exp = 50;
 handler.fail = null;
@@ -81,5 +82,5 @@ function clockString(ms) {
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
   const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
   return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
-    }
-  
+  }
+    
