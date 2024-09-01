@@ -3,7 +3,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
   if (!db.data.chats[m.chat].modohorny && m.isGroup) {
     // Enviar el archivo de audio en lugar del mensaje de texto
     const audioPath = './media/Medasascopierdete.mp';
-    await conn.sendFile(m.chat, audioPath, 'Medasascopierdete.mp', null, m, true, { type: 'audioMessage', ptt: true });
+    await conn.sendFile(m.chat, audioPath, 'Medasascopierdete.mp3', null, m, true, { type: 'audioMessage', ptt: true });
     return;
   }
   try {
