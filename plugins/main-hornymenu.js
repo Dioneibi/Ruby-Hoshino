@@ -4,7 +4,7 @@ const handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, i
   if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `⚠️ ¡𝐢𝐝𝐢𝐨𝐭𝐚, 𝐞𝐬𝐭𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐞𝐬𝐭𝐚𝐧 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨𝐬, 𝐦𝐞 𝐝𝐚𝐬 𝐚𝐬𝐜𝐨 𝐦𝐞𝐣𝐨𝐫 𝐩𝐢𝐞𝐫𝐝𝐞𝐭𝐞!`;
 
   try {
-    const pp = 'https://telegra.ph/file/d24bba0c0edab4555b80d.jpg'; // Imagen del link proporcionado
+    const pp = 'https://telegra.ph/file/508f8a2f56302590f8c12.jpg';
     const d = new Date(new Date + 3600000);
     const locale = 'es';
     const week = d.toLocaleDateString(locale, { weekday: 'long' });
