@@ -2,9 +2,7 @@ import fetch from 'node-fetch';
 
 const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
   if (!db.data.chats[m.chat].modohorny && m.isGroup) {
-    const audioUrl = 'https://www.mediafire.com/file/1jwozo3z8yatmxw/Me_das_asco_pierdete_opm_meme_plantilla/file';
-    const response = await fetch(audioUrl);
-    const buffer = await response.buffer();
+    const audioPath = './media/Medasascopierdete.mp3';
     try {
       const pp = imagen3;
       const d = new Date(new Date + 3600000);
@@ -83,5 +81,5 @@ function clockString(ms) {
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
   const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
   return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
-        }
-      
+    }
+  
