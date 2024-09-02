@@ -41,18 +41,18 @@ global.imagen3 = fs.readFileSync('./Menu3.jpg')
 global.imagen4 = fs.readFileSync('./Menu4.jpg')
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
-global.gp1 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'
-global.gp2 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'
-global.gp3 = 'https://chat.whatsapp.com/FOaoHm3M09f5gN0JSyhR5W'
-global.gp4 = 'https://chat.whatsapp.com/FOaoHm3M09f5gN0JSyhR5W'
-global.gp5 = 'https://chat.whatsapp.com/CMTdDsE4YEBE1fvA4PN2PN'
-global.comunidad1 = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy' 
-global.channel = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy' 
-global.channel2 = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy'
-global.yt = 'https://www.viduall.ddns.net'
-global.md = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
-global.fb = 'https://www.viduall.ddns.net'
-global.tiktok = 'https://www.viduall.ddns.net'
+global.gp1 = ''
+global.gp2 = ''
+global.gp3 = ''
+global.gp4 = ''
+global.gp5 = ''
+global.comunidad1 = '' 
+global.channel = '' 
+global.channel2 = ''
+global.yt = ''
+global.md = ''
+global.fb = ''
+global.tiktok = ''
 
 //• ↳ ◜𝑻𝑰𝑬𝑴𝑷𝑶◞ • 🕒
 global.d = new Date(new Date + 3600000);
