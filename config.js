@@ -50,7 +50,7 @@ global.comunidad1 = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy'
 global.channel = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy' 
 global.channel2 = 'https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy'
 global.yt = 'https://www.viduall.ddns.net'
-global.md = 'https://github.com/nevi67/VermeilBot-MD'
+global.md = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
 global.fb = 'https://www.viduall.ddns.net'
 global.tiktok = 'https://www.viduall.ddns.net'
 
@@ -64,7 +64,7 @@ global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
 global.wm2 = `${dia} ${fecha}\nLuffy`;
-global.nomorown = '18096758983';
+global.nomorown = '18294868853;
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
 global.cmenub = '┊✦ ';
