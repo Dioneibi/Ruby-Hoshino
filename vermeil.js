@@ -112,8 +112,8 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-global.authFile = `vermeilSession`
-global.authFileJB = `vermeilJadiBot`
+global.authFile = `TatsumakiSession`
+global.authFileJB = `TatsumakiJadiBot`
 
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
