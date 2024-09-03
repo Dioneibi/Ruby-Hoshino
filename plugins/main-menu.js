@@ -47,6 +47,7 @@ const defaultMenu = {
 ║ ☆ 👩‍💻 *𝖢𝖱𝖤𝖠𝖣𝖮𝖱*: [𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑](https://Wa.me/18294868853)
 ╚════════════════════════╝
 
+%readmore
 ╔═══════⩽✦✰✦⩾═══════╗
      「 𝙄𝙉𝙁𝙊 𝘿𝙀𝙇 𝙐𝙎𝙐𝘼𝙍𝙄𝙊 」
 ╚═══════⩽✦✰✦⩾═══════╝
@@ -180,16 +181,13 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
   global.vid = rlink
   const response = await fetch(vid)
   const gif = await response.buffer()
+ // const img = imagen1
 
-    // Define rcanal here
-    let rcanal = "https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy";
-  
-  
-    await conn.reply(m.chat, '*ꪹ͜𓂃⌛͡𝗘𝗻𝘃𝗶𝗮𝗻𝗱𝗼 𝗠𝗲𝗻𝘂 𝗱𝗲𝗹 𝗕𝗼𝘁....𓏲੭*', fkontak, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: '🌀𝑷𝒔𝒚𝒄𝒉𝒊𝒄 𝑷𝒐𝒘𝒆𝒓𝒔🌀', sourceUrl: redes, thumbnail: icons }}})
+/*await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: '𝐃𝐞𝐯 𝐖𝐨𝐫𝐝 𝐓𝐞𝐚𝐦 𝐎𝐟𝐢𝐜𝐢𝐚𝐥', sourceUrl: channel, thumbnail: icons }}})*/
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
-await m.react('💖') 
+await m.react('⭐️') 
 
 //await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
 
@@ -200,13 +198,13 @@ await conn.sendMessage(
     mentionedJid: [m.sender],
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363263466636910@newsletter',
-      newsletterName: '『✯ Team Channe✯』',
+      newsletterJid: '120363307382381547@newsletter',
+      newsletterName: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐/ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸',
       serverMessageId: -1,
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: '★彡『 𝙏𝙖𝙩𝙨𝙪𝙢𝙖𝙠𝙞-𝙈𝘿 』彡★',
+      title: '⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐',
       body: dev,
       thumbnailUrl: icono,
       sourceUrl: redes,
@@ -240,8 +238,8 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-var ase = new Date();
-var hour = ase.getHours();
+  var ase = new Date();
+  var hour = ase.getHours();
 switch(hour){
   case 0: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌙'; break;
   case 1: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 💤'; break;
@@ -268,5 +266,5 @@ switch(hour){
   case 22: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌙'; break;
   case 23: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌃'; break;
 }
-var greeting = hour;
-    
+  var greeting = hour;
+                                  
