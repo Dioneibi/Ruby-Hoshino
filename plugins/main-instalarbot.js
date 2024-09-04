@@ -1,6 +1,6 @@
 var handler  = async (m, { conn }) => {
 
-let texto = `🚩 *Instalación de VermeilBot*
+let texto = `🚩 *Instalación de Tatsumaki-MD*
 
 ⬡ Dudas: ${creador}
 ⬡ Tutoríal: *¡Pronto!*
@@ -49,9 +49,9 @@ conn.sendMessage(m.chat, {image: {url: 'https://telegra.ph/file/c24470edcbe5e250
 }
 
 }
-handler.help = ['instalarluffy']
+handler.help = ['instalarbot']
 handler.tags = ['main']
-handler.command = /^(instalarvermeil|instalarbot)/i
+handler.command = /^(instalarTatsumaki|instalarbot)/i
 
 export default handler
 
