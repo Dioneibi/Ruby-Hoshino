@@ -726,16 +726,16 @@ console.error(e)
 
 global.dfail = (type, m, conn) => {
 const msg = {
-rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> nevigamer.', 
-owner: '「👑」 *Esta función solo puede ser usada por mi desarrollador.', 
-mods: '「🤴🏻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
-premium: '「🍧」 *Esta función solo es para usuarios Premium.', 
-group: '「🐢」 *Esta funcion solo puede ser ejecutada en grupos.*', 
-private: '「🍭」 *Esta función solo puede ser usada en chat privado.*', 
-admin: '「👑」 *Este comando solo puede ser usado por admins.*', 
-botAdmin: '「🚩」 *Para usar esta función debo ser admin.*', 
-unreg: '*hey alto no estas en mi lista, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg vermeilbot-md.20*',
-restrict: '「💫」 *Esta característica esta desactivada.*'
+rowner: '𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑\n\n> Dioneibi.', 
+owner: '👩‍💻 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐒𝐀𝐃𝐀 𝐏𝐎𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑.', 
+mods: '👩‍💻 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐒𝐀𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑.*', 
+premium: '😎 𝐄𝐒𝐓𝐀 𝐅𝐔𝐍𝐂𝐈𝐎𝐍 𝐄𝐒 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐔𝐒𝐔𝐀𝐑𝐈𝐎𝐒 𝐏𝐑𝐄𝐌𝐈𝐔𝐍.', 
+group: '🌚 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐅𝐔𝐍𝐂𝐈𝐎𝐍𝐀 𝐄𝐍 𝐆𝐑𝐔𝐏𝐎𝐒.', 
+private: '🤚 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄𝐒 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐑 𝐄𝐍 𝐂𝐇𝐀𝐓 𝐏𝐑𝐈𝐕𝐀𝐃𝐎.', 
+admin: '😕 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐀 𝐏𝐎𝐑 𝐋𝐎𝐒 𝐀𝐃𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐀𝐃𝐎𝐑𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎.', 
+botAdmin: '🛑 𝐏𝐀𝐑𝐀 𝐏𝐎𝐃𝐄𝐑 𝐔𝐒𝐀𝐑 𝐄𝐒𝐀 𝐅𝐔𝐍𝐂𝐈Ó𝐍 𝐏𝐑𝐈𝐌𝐄𝐑𝐎 𝐃𝐄𝐁𝐎 𝐒𝐄𝐑 𝐀𝐃𝐌𝐈𝐍.', 
+unreg: '🤚 𝗨𝗦𝗧𝗘𝗗 𝗡𝗢 𝗘𝗦𝗧𝗔 𝗘𝗡 𝗠𝗜 𝗕𝗔𝗦𝗘 𝗗𝗘 𝗗𝗔𝗧𝗢𝗦 \n\nPara usar el bot debes *registrarte* primero\n\nUtiliza: */reg nombre.edad*\n\n_Ejemplo: */reg Uraraka⁩.666*_\n\nNo pongas los * *`,
+restrict: '😕𝐄𝐒𝐓𝐀 𝐅𝐔𝐍𝐂𝐈𝐎𝐍 𝐄𝐒𝐓𝐀 𝐃𝐄𝐒𝐀𝐂𝐓𝐈𝐕𝐀𝐃𝐀'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
 const file = global.__filename(import.meta.url, true);
