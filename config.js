@@ -41,6 +41,7 @@ global.imagen3 = fs.readFileSync('./Menu3.jpg')
 global.imagen4 = fs.readFileSync('./Menu4.jpg')
 global.imagen5 = fs.readFileSync('./Menu5.jpg')
 global.imagen6 = fs.readFileSync('./welcome.jpg')
+global.imagen7 = fs.readFileSync('./bye.jpg')
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
 global.gp1 = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
