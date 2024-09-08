@@ -727,7 +727,7 @@ console.error(e)
 global.dfail = (type, m, conn) => {
 const msg = {
 rowner: '𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑\n\n> Dioneibi.', 
-owner: '「👑」 *Esta función solo puede ser usada por mi desarrollador.', 
+owner: '👩‍💻 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐒𝐀𝐃𝐀 𝐏𝐎𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑.', 
 mods: '「🤴🏻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
 premium: '「🍧」 *Esta función solo es para usuarios Premium.', 
 group: '「🐢」 *Esta funcion solo puede ser ejecutada en grupos.*', 
