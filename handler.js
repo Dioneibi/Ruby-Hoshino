@@ -730,7 +730,7 @@ rowner: '𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎
 owner: '👩‍💻 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐒𝐀𝐃𝐀 𝐏𝐎𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑.', 
 mods: '👩‍💻 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐒𝐀𝐑 𝐌𝐈 𝐂𝐑𝐄𝐀𝐃𝐎𝐑.*', 
 premium: '🙄 𝐄𝐒𝐓𝐀 𝐅𝐔𝐍𝐂𝐈𝐎𝐍 𝐄𝐒 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐔𝐒𝐔𝐀𝐑𝐈𝐎𝐒 𝐏𝐑𝐄𝐌𝐈𝐔𝐍.', 
-group: '「🐢」 *Esta funcion solo puede ser ejecutada en grupos.*', 
+group: '💫 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐅𝐔𝐍𝐂𝐈𝐎𝐍𝐀 𝐄𝐍 𝐆𝐑𝐔𝐏𝐎𝐒.*', 
 private: '「🍭」 *Esta función solo puede ser usada en chat privado.*', 
 admin: '「👑」 *Este comando solo puede ser usado por admins.*', 
 botAdmin: '「🚩」 *Para usar esta función debo ser admin.*', 
