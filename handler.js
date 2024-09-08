@@ -734,7 +734,7 @@ group: '💫 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐅
 private: '🤚 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄𝐒 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐑 𝐄𝐍 𝐂𝐇𝐀𝐓 𝐏𝐑𝐈𝐕𝐀𝐃𝐎.', 
 admin: '😕 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐀 𝐏𝐎𝐑 𝐋𝐎𝐒 𝐀𝐃𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐀𝐃𝐎𝐑𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎.', 
 botAdmin: '🛑 𝐏𝐀𝐑𝐀 𝐏𝐎𝐃𝐄𝐑 𝐔𝐒𝐀𝐑 𝐄𝐒𝐀 𝐅𝐔𝐍𝐂𝐈Ó𝐍 𝐏𝐑𝐈𝐌𝐄𝐑𝐎 𝐃𝐄𝐁𝐎 𝐒𝐄𝐑 𝐀𝐃𝐌𝐈𝐍.', 
-unreg: '*hey alto no estas en mi lista, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg vermeilbot-md.20*',
+unreg: '🤚 𝗨𝗦𝗧𝗘𝗗 𝗡𝗢 𝗘𝗦𝗧𝗔 𝗘𝗡 𝗠𝗜 𝗕𝗔𝗦𝗘 𝗗𝗘 𝗗𝗔𝗧𝗢𝗦 \n\nPara usar el bot debes *registrarte* primero\n\nUtiliza: */reg nombre.edad*\n\n_Ejemplo: */reg Uraraka⁩.666*_\n\nNo pongas los * *',
 restrict: '「💫」 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
