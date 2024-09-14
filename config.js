@@ -23,15 +23,15 @@ global.suittag = ['18294886853',]
 global.prems = []
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
-global.packname = '໒꒰ྀི«★🌪️𝗧𝗮𝘁𝘀𝘂𝗺𝗮𝗸𝗶-𝗠𝗗🌪️★»ྀི১'
+global.packname = '🌹★᭄ꦿ᭄ꦿ✰Rüb̸̤̈ÿ Hös̸̤̈ḧ̸̤ïn̸̤̈ö★᭄ꦿ᭄ꦿ🌹'
 global.author = '⋆.˚ＤＩＯＮＥＩＢＩ🦋༘⋆'
 global.wm = 'ᴍᴏᴅɪꜰɪᴇʟ ʙʏ: ᴅɪᴏɴᴇɪʙɪ'
 global.titulowm = '𝓥𝓮𝓻𝓶𝓮𝓲𝓵𝓑𝓸𝓽-𝓜𝓓'
 global.titulowm2 = 'Dioneibi'
 global.igfg = '𓆩𓆪 𝕯𝖎𝖔𝖓𝖊𝖎𝖇𝖎 𓆪𓆩'
-global.botname = 'Tαƚʂυɱαƙι-Bσƚ-MD'
+global.botname = '⃝𖤐𝐑ᴜβÿ⸸𝐇̶ᴏ𝚂͢𝖍𝐈ᶰ𝐎❟⃤࿚'
 global.dev = '➣ ʳᵉᵛᵉˡᵒᵖᵉʳ ᵇʸ: ᵈᶦᵒⁿᵉⁱᵇⁱ ➣'
-global.textbot = '𝚃𝚊𝚝𝚜𝚞𝚖𝚊𝚔𝚒𝙱𝚘𝚝 : 𝙳𝚒𝚘𝚗𝚎𝚒𝚋𝚒'
+global.textbot = '𝚃𝚊𝚝𝚜𝚞𝚖𝚊𝚔𝚒𝙱 : 𝙳𝚒𝚘𝚗𝚎𝚒𝚋𝚒'
 global.vs = '2.0.2'
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
