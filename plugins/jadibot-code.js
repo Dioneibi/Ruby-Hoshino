@@ -27,11 +27,11 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner, isPrems, isR
 
     async function serbot() {
         let authFolderB = crypto.randomBytes(10).toString('hex').slice(0, 8);
-        if (!fs.existsSync("./vermeilJadiBot/" + authFolderB)) {
-            fs.mkdirSync("./vermeilJadiBot/" + authFolderB, { recursive: true });
+        if (!fs.existsSync("./RubyJadiBot/" + authFolderB)) {
+            fs.mkdirSync("./RubyJadiBot/" + authFolderB, { recursive: true });
         }
         if (args[0]) {
-            fs.writeFileSync(`LuffyJadiBot/creds.json`, Buffer.from(args[0], 'base64').toString('utf-8'));
+            fs.writeFileSync(`RubyJadiBot/creds.json`, Buffer.from(args[0], 'base64').toString('utf-8'));
         }
 
         const { state, saveState, saveCreds } = await useMultiFileAuthState(`./vermeilJadiBot/${authFolderB}`);
