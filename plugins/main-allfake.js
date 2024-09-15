@@ -59,9 +59,9 @@ global.waitttt = '🕒 *a*';
 //Enlaces
 var canal = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE' 
 var canal2 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'  
-var git = 'https://github.com/nevi67' 
+var git = 'https://github.com/Dioneibi' 
 var youtube = 'https://www.youtube.com' 
-var github = 'https://github.com/nevi67/VermeilBot-MD' 
+var github = 'https://github.com/Dioneibi/Ruby Hoshino' 
 var facebook = 'https://www.facebook.com' 
 let tiktok = 'https://tiktok.com'
 
