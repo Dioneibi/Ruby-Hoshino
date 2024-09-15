@@ -57,8 +57,8 @@ global.waittt = 'Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ..\n■■■■�
 global.waitttt = '⌛ 𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨...⚙️\n╰──⟢ 🖥️ 𝑃𝑜𝑟 𝑓𝑎𝑣𝑜𝑟, 𝑒𝑠𝑝𝑒𝑟𝑎';
 
 //Enlaces
-var canal = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE' 
-var canal2 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'  
+var canal = 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P' 
+var canal2 = 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P'  
 var git = 'https://github.com/Dioneibi' 
 var youtube = 'https://youtube.com/@rubyhoshinobot?si=Inw5I7R3ZBB8GJbK' 
 var github = 'https://github.com/Dioneibi/Ruby Hoshino' 
