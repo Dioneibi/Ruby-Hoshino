@@ -37,7 +37,7 @@ const defaultMenu = {
 ｡☆✼★━━━━━━━━━━━━━━━━━★✼☆｡
 
 "✨🌸 ¡Hola, %name! 🌸✨
-Mi nombre es *Ruby Hoshino* encantada de conocerte contigo. 💖"
+Mi nombre es *Ruby Hoshino* encantada de conocerte. 💖"
 
 ╔═══════⩽✦✰✦⩾═══════╗
        「 𝙄𝙉𝙁𝙊 𝘿𝙀𝙇 𝘽𝙊𝙏 」
