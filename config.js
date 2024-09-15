@@ -32,7 +32,7 @@ global.titulowm2 = 'Dioneibi'
 global.igfg = '𓆩𓆪 𝕯𝖎𝖔𝖓𝖊𝖎𝖇𝖎 𓆪𓆩'
 global.botname = '⃝𖤐𝐑ᴜβÿ⸸𝐇̶ᴏ𝚂͢𝖍𝐈ᶰ𝐎❟⃤࿚'
 global.dev = '➣ ʳᵉᵛᵉˡᵒᵖᵉʳ ᵇʸ: ᵈᶦᵒⁿᵉⁱᵇⁱ ➣'
-global.textbot = '𝚃𝚊𝚝𝚜𝚞𝚖𝚊𝚔𝚒𝙱 : 𝙳𝚒𝚘𝚗𝚎𝚒𝚋𝚒'
+global.textbot = '𝙳𝚒𝚘𝚗𝚎𝚒𝚋𝚒'
 global.vs = '2.0.2'
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
