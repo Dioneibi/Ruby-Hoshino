@@ -99,7 +99,7 @@ global.icono = [
 'https://qu.ax/vXLy.jpg',
 'https://qu.ax/HhoM.jpg',
 'https://qu.ax/gXdf.jpg',
-'https://telegra.ph/file/81b01c5499aa0a4eb3cfc.jpg',
+'https://qu.ax/nXlT.jpg',
 'https://telegra.ph/file/14ae03f3c3160c0612a52.jpg'
 ].getRandom()
 
