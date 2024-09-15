@@ -114,7 +114,7 @@ newsletterName: 'Ruby-Hoshino Bot Channel 🚩',
 externalAdReply: { 
 showAdAttribution: true,
 title: packname,
-body: '🍟 ¡Super Bot De WhatsApp!',
+body: '💖¡𝐑𝐮𝐛𝐲 𝐇𝐨𝐬𝐡𝐢𝐧𝐨 𝐥𝐚 𝐛𝐨𝐭 𝐦𝐚𝐬 𝐁𝐫𝐢𝐥𝐥𝐚𝐧𝐭𝐞!✨',
 mediaUrl: null,
 description: null,
 previewType: "PHOTO",
