@@ -8,7 +8,7 @@ import { createInterface } from 'readline';
 import yargs from 'yargs';
 import chalk from 'chalk';
 
-console.log('\n✰ Iniciando Tatsumaki-Bot-MD ✰');
+console.log('\n✰ Iniciando Ruby-Hoshino-MD ✰');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
@@ -16,7 +16,7 @@ const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
 
 // Cambiado a verde cromático
-say('Tatsumaki\nBot-MD', {
+say('Ruby-Hoshino\nMD', {
   font: 'block',
   align: 'center',
   colors: ['green', 'white'],  // Verde cromático y blanco para un efecto de resaltado
