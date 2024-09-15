@@ -107,9 +107,9 @@ global.rcanal = {
 contextInfo: {
 isForwarded: false,
 forwardedNewsletterMessageInfo: {
-newsletterJid: "120363263466636910@newsletter",
+newsletterJid: "0029VakLbM76mYPPFL0IFI3P@newsletter",
 serverMessageId: 100,
-newsletterName: 'vermeil Bot Channel 🚩',
+newsletterName: 'Ruby-Hoshino Bot Channel 🚩',
 },
 externalAdReply: { 
 showAdAttribution: true,
