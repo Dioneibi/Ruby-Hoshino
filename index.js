@@ -19,7 +19,7 @@ const rl = createInterface(process.stdin, process.stdout);
 say('Ruby-Hoshino\nMD', {
   font: 'block',
   align: 'center',
-  colors: ['green', 'white'],  // Verde cromático y blanco para un efecto de resaltado
+  colors: ['pink', 'white'],  // Verde cromático y blanco para un efecto de resaltado
 });
 
 // Cambiado a un degradado entre rojo y azul
@@ -85,5 +85,5 @@ process.on('warning', (warning) => {
     console.warn(warning.stack);
   }
 });
-start('Tatsumaki.js');
+start('Ruby.js');
        
