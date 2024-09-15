@@ -206,7 +206,7 @@ await conn.sendMessage(
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: '★彡『 𝙏𝙖𝙩𝙨𝙪𝙢𝙖𝙠𝙞-𝙈𝘿 』彡★',
+      title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
       body: dev,
       thumbnailUrl: icono,
       sourceUrl: redes,
