@@ -48,7 +48,7 @@ poner uno por uno
 termux-setup-storage
 ```
 ```bash
-grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/Dioneibi/Tatsumaki-Bot-MD/main/install22.sh | bash
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/Dioneibi/Ruby-Hoshino/main/install22.sh | bash
 ```
 
 manual:
@@ -61,7 +61,7 @@ termux-setup-storage
 apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 ```bash
-git clone https://github.com/Dioneibi/Tatsumaki-Bot-MD && cd Tatsumaki-Bot-MD
+git clone https://github.com/Dioneibi/Ruby-Hoshino && cd Ruby-Hoshino
 ```
 ```bash
 yarn install && npm install
@@ -73,13 +73,13 @@ npm start
 si se apaga el bot:
 ```bash
  cd 
- cd Tatsumaki-Bot-MD
+ cd Ruby-Hoshino
  npm start
 ```
  obtener otro codigo:
 ```bash
- cd Tatsumaki-Bot-MD
- rm -rf TatsumakiSession
+ cd Ruby-Hoshino
+ rm -rf RubySession
  npm start
 ```
  si no quieren que se apague:
@@ -88,5 +88,5 @@ termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 ```
 actualizar:
 ```bash
-grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/Dioneibi/Tatsumaki-Bot-MD/master/update.sh | bash
+grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/Dioneibi/Ruby-Hoshino/master/update.sh | bash
  ```
