@@ -112,8 +112,8 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-global.authFile = `TatsumakiSession`
-global.authFileJB = `TatsumakiJadiBot`
+global.authFile = `RubySession`
+global.authFileJB = `RubyJadiBot`
 
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
