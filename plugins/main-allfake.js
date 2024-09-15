@@ -52,7 +52,7 @@ global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //mensaje en espera
 global.wait = '⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ ███████□□□□□□ 70% ';
-global.waitt = '🕒 *quiero hacer algo*';
+global.waitt = '🌸٭⟁⩗𖠵⃕𖥔⊰ 𝗖𝗮𝗿𝗴𝗮𝗻𝗱𝗼■■■■■■■■□ 80%';
 global.waittt = '🕒 *por que existe esto*';
 global.waitttt = '🕒 *a*';
 
