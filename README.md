@@ -1,4 +1,4 @@
-<h1 align="center">⋆｡˚꒰ঌ 🌀𝐓𝐚𝐭𝐬𝐮𝐦𝐚𝐤𝐢-𝐁𝐨𝐭-𝐌𝐃🌀 ໒꒱˚｡⋆</h1>
+<h1 align="center">𖤐⭒๋࣭⭑𝗥𝘂𝗯𝘆 𝗛𝗼𝘀𝗵𝗶𝗻𝗼 - 𝗠𝗗𓏲ּ ᥫ᭡ ₊ ⊹ ˑ ִ ֶ 𓂃</h1>
 <p align="center">Tu Bot ideal!</p>
 
 <p align="center">
