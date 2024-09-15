@@ -43,9 +43,8 @@
 
 *termux*
 [`Instalar Termux Clic Aqui`](https://www.mediafire.com/file/3hsvi3xkpq3a64o/termux_118.apk/file)
-automatico:
 
-poner uno por uno
+**instalación automático**: poner uno por uno
 
 ```bash
 termux-setup-storage
