@@ -1,4 +1,4 @@
-<h1 align="center">  𖤐⭒๋࣭⭑𝗥𝘂𝗯𝘆 𝗛𝗼𝘀𝗵𝗶𝗻𝗼 - 𝗠𝗗𓏲ּ ᥫ᭡ ₊ ⊹ ˑ ִ ֶ 𓂃</h1>
+<h1 align="center">𖤐⭒๋࣭⭑𝗥𝘂𝗯𝘆 𝗛𝗼𝘀𝗵𝗶𝗻𝗼 - 𝗠𝗗𓏲ּ ᥫ᭡ ₊ ⊹ ˑ ִ ֶ 𓂃</h1>
 <p align="center">Tu Bot ideal!</p>
 
 <p align="center">
