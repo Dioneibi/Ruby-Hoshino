@@ -53,7 +53,7 @@ termux-setup-storage
 grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https://raw.githubusercontent.com/Dioneibi/Ruby-Hoshino/main/install22.sh | bash
 ```
 
-manual:
+**instalación manual**: pon los comandos uno por uno
 poner uno por uno 
 
 ```bash
