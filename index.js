@@ -19,7 +19,7 @@ const rl = createInterface(process.stdin, process.stdout);
 say('Ruby-Hoshino\nMD', {
   font: 'block',
   align: 'center',
-  colors: ['pink', 'white'],  // Verde cromático y blanco para un efecto de resaltado
+  colors: ['candy', 'white'],  // Verde cromático y blanco para un efecto de resaltado
 });
 
 // Cambiado a un degradado entre rojo y azul
