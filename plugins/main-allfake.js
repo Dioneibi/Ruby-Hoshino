@@ -100,7 +100,7 @@ global.icono = [
 'https://qu.ax/HhoM.jpg',
 'https://qu.ax/gXdf.jpg',
 'https://qu.ax/nXlT.jpg',
-'https://telegra.ph/file/14ae03f3c3160c0612a52.jpg'
+'https://qu.ax/VrzT.jpg'
 ].getRandom()
 
 global.rcanal = {
