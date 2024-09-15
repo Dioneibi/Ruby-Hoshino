@@ -34,7 +34,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 //creador y otros
 global.creador = 'Wa.me/18294868853'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/18096758983'
+global.asistencia = 'Wa.me/18294868853'
 global.namechannel = '🚩 Ruby Bot - MD​᭄ ᎪΝႮΝᏟᏆϴՏ'
 
 //Reacciones De Comandos.!
