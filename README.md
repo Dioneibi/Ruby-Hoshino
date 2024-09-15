@@ -2,7 +2,7 @@
 <p align="center">Tu Bot ideal!</p>
 
 <p align="center">
-  <img src="https://files.catbox.moe/2543jw.jpg" alt="No robes Rata" width="600"/>
+  <img src="https://files.catbox.moe/2543jw.jpg" alt="Da una estrellita porfis" width="600"/>
 </p>
 <br>
  </p>
