@@ -15,11 +15,11 @@
 [`🚩 Instalar Cloud Shell Clic Aqui`](https://www.mediafire.com/file/bp2l6cci2p30hjv/Cloud+Shell_1.apk/file)
 
 ```bash
- git clone https://github.com/Dioneibi/Tatsumaki-Bot-MD
+ git clone https://github.com/Dioneibi/Ruby-Hoshino
 ```
 
 ```bash
- cd Tatsumaki-Bot-MD && yarn install
+ cd Ruby-Hoshino && yarn install
 ```
 
 ```bash
