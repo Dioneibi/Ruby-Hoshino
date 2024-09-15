@@ -32,17 +32,17 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 //let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/5fd686d0cbb2ac194ab56.jpg')
 
 //creador y otros
-global.creador = 'Wa.me/18096758983'
+global.creador = 'Wa.me/18294868853'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/18096758983'
-global.namechannel = '🚩 Vermeil Bot - MD​᭄ ᎪΝႮΝᏟᏆϴՏ'
+global.namechannel = '🚩 Ruby Bot - MD​᭄ ᎪΝႮΝᏟᏆϴՏ'
 
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de LuffyBot
+//Emojis determinados de Luffy
 global.emoji = '🚩'
 global.emoji2 = '🍟'
 global.emoji3 = '✨️'
