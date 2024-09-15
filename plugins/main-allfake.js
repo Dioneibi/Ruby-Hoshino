@@ -97,7 +97,7 @@ global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(fa
 global.icono = [ 
 'https://qu.ax/tFuy.jpeg',
 'https://qu.ax/vXLy.jpg',
-'https://telegra.ph/file/4b386b0d3a4c346cf19be.jpg',
+'https://qu.ax/HhoM.jpg',
 'https://telegra.ph/file/bb82643dce0f91bb1b6f5.jpg',
 'https://telegra.ph/file/81b01c5499aa0a4eb3cfc.jpg',
 'https://telegra.ph/file/14ae03f3c3160c0612a52.jpg'
