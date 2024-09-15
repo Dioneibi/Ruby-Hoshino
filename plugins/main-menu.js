@@ -36,7 +36,8 @@ const defaultMenu = {
         ┖┈┈┈┈┈┈┈୨♡୧┈┈┈┈┈┈┈┚
 ｡☆✼★━━━━━━━━━━━━━━━━━★✼☆｡
 
-" ᷔ🌷‌̶̮⃞ᰰ𝆆ᣞ》 ugh!, bueno Hola, soy *Tatsumaki* y %greeting"
+"✨🌸 ¡Hola, %name! 🌸✨
+Mi nombre es *Ruby Hoshino* encantada de conocerte contigo. 💖"
 
 ╔═══════⩽✦✰✦⩾═══════╗
        「 𝙄𝙉𝙁𝙊 𝘿𝙀𝙇 𝘽𝙊𝙏 」
@@ -187,7 +188,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
     let rcanal = "https://chat.whatsapp.com/KBQZ7fAdAY3HtVudDl3Cmy";
   
   
-    await conn.reply(m.chat, '*ꪹ͜𓂃⌛͡𝗘𝗻𝘃𝗶𝗮𝗻𝗱𝗼 𝗠𝗲𝗻𝘂 𝗱𝗲𝗹 𝗕𝗼𝘁....𓏲੭*', fkontak, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: '🌀𝑷𝒔𝒚𝒄𝒉𝒊𝒄 𝑷𝒐𝒘𝒆𝒓𝒔🌀', sourceUrl: redes, thumbnail: icons }}})
+    await conn.reply(m.chat, '*ꪹ͜𓂃⌛͡𝗘𝗻𝘃𝗶𝗮𝗻𝗱𝗼 𝗠𝗲𝗻𝘂 𝗱𝗲𝗹 𝗕𝗼𝘁....𓏲੭*', fkontak, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: '%greeting', sourceUrl: redes, thumbnail: icons }}})
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
