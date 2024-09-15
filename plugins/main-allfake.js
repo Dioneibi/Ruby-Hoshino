@@ -51,7 +51,7 @@ global.emoji5 = '🐢'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //mensaje en espera
-global.wait = '🕒 *estoy haciendo el menu espera*';
+global.wait = '⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ ███████□□□□□□ 70% ';
 global.waitt = '🕒 *quiero hacer algo*';
 global.waittt = '🕒 *por que existe esto*';
 global.waitttt = '🕒 *a*';
