@@ -60,7 +60,7 @@ global.waitttt = '⌛ 𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨...⚙️\n╰──⟢ �
 var canal = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE' 
 var canal2 = 'https://chat.whatsapp.com/Bns5M5EQ1Yq2d4rt6o9iNE'  
 var git = 'https://github.com/Dioneibi' 
-var youtube = 'https://www.youtube.com' 
+var youtube = 'https://youtube.com/@rubyhoshinobot?si=Inw5I7R3ZBB8GJbK' 
 var github = 'https://github.com/Dioneibi/Ruby Hoshino' 
 var facebook = 'https://www.facebook.com' 
 let tiktok = 'https://tiktok.com'
