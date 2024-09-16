@@ -2,38 +2,35 @@ import axios from 'axios'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!args[0]) return conn.reply(m.chat, '🚩 Ingrese el enlace de un archivo de Mediafire.', m, rcanal)
-  if (!args[0].match(/mediafire/gi)) return conn.reply(m.chat, '🍟 El enlace debe ser de un archivo de Mediafire.', m, rcanal)
+    if (!args[0]) return conn.reply(m.chat, '🚩 Ingrese el enlace de un archivo de Mediafire.', m, rcanal)
+    if (!args[0].match(/mediafire/gi)) return conn.reply(m.chat, '🍟 El enlace debe ser de un archivo de Mediafire.', m, rcanal)
+    try {
+        await m.react(rwait)
+        
+        // Realiza la solicitud a la API de dorratz
+        let { data } = await axios.get(`https://api.dorratz.com/v2/mediafire-dl?url=${args[0]}`)
 
-  try {
-    await m.react(rwait)
+        // Extrae la información del archivo
+        let { filename, size, mime, link } = data
 
-    // Realiza la solicitud a la API
-    let response = await axios.get(`https://api.dorratz.com/v2/mediafire-dl?url=${encodeURIComponent(args[0])}`)
+        let txt = `乂  *¡MEDIAFIRE - DESCARGAS!*  乂\n\n`
+        txt += `✩ *Nombre* : ${filename}\n`
+        txt += `✩ *Peso* : ${size}\n`
+        txt += `✩ *MimeType* : ${mime}\n\n`
+        txt += `*- ↻ El archivo se está enviando, espera un momento...*`
 
-    // Verifica si la solicitud fue exitosa
-    if (response.data && response.data.status === 'success') {
-      let { filename, filesize, mimetype, filelink } = response.data.result
+        // Enviar la imagen de MediaFire como miniatura
+        let img = await (await fetch('https://i.ibb.co/wLQFn7q/logo-mediafire.jpg')).buffer()
+        await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, fkontak, null, rcanal)
 
-      let txt = `乂  *¡MEDIAFIRE - DESCARGAS!*  乂\n\n`
-      txt += `✩ *Nombre* : ${filename}\n`
-      txt += `✩ *Peso* : ${filesize}\n`
-      txt += `✩ *MimeType* : ${mimetype}\n\n`
-      txt += `*- ↻ El archivo se está enviando, espera un momento, soy lento...*\n`
-
-      let img = await (await fetch('https://i.ibb.co/wLQFn7q/logo-mediafire.jpg')).buffer()
-      await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, fkontak, null, rcanal)
-      await conn.sendFile(m.chat, filelink, filename, null, fkontak, null, { mimetype: mimetype, asDocument: true })
-
-      await m.react(done)
-    } else {
-      throw new Error('Error al obtener los datos del archivo de Mediafire.')
+        // Enviar el archivo descargado desde el link
+        await conn.sendFile(m.chat, link, filename, null, fkontak, null, { mimetype: mime, asDocument: true })
+        await m.react(done)
+    } catch (err) {
+        console.error(err)
+        await m.react(error)
+        conn.reply(m.chat, '⚠️ Error al descargar el archivo. Asegúrate de que el enlace sea válido.', m, rcanal)
     }
-  } catch (error) {
-    console.error(error)
-    await conn.reply(m.chat, '❌ Ocurrió un error al descargar el archivo de Mediafire.', m, rcanal)
-    await m.react(error)
-  }
 }
 
 handler.help = ['mediafire']
@@ -42,4 +39,4 @@ handler.command = ['mediafire', 'mdfire', 'mf']
 handler.premium = false
 
 export default handler
-                          
+          
