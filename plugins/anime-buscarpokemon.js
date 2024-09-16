@@ -23,7 +23,9 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     // Información adicional (regiones, biografía)
     const speciesRes = await axios.get(data.species.url);
     const speciesData = speciesRes.data;
-    const regiones = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
+    const habitat = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
+
+    // Obtener la biografía en español
     const biografia = speciesData.flavor_text_entries
       .find(entry => entry.language.name === 'es')
       ?.flavor_text || 'Biografía no disponible';
@@ -34,7 +36,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 🔮 *Tipo*: ${tipos}
 📏 *Altura*: ${altura} m
 ⚖️ *Peso*: ${peso} kg
-🌍 *Regiones*: ${regiones}
+🌍 *Hábitat*: ${habitat}
 
 📜 *Biografía*: ${biografia}`;
 
@@ -54,3 +56,4 @@ handler.help = ['buscarpokemon'];
 handler.limit = true;
 
 export default handler;
+  
