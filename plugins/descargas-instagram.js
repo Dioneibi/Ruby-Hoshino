@@ -1,59 +1,142 @@
-import axios from 'axios';
-import fetch from 'node-fetch';
-import * as cheerio from 'cheerio';
+import axios from "axios";
 
-async function getInstagramVideo(url) {
-    try {
-        // Fetch the page
-        const response = await fetch(url);
-        const body = await response.text();
-        
-        // Load the page HTML into cheerio
-        const $ = cheerio.load(body);
-        
-        // Extract video URL from meta tags or embedded JSON
-        const videoUrl = $('meta[property="og:video"]').attr('content');
-        
-        if (!videoUrl) {
-            throw new Error('No se encontró URL del video en la página.');
-        }
-        
-        return videoUrl;
-    } catch (error) {
-        throw new Error('No se pudo obtener el video de Instagram.');
+const handler = async (m, { conn, args, command, usedPrefix }) => {
+  const datas = global;
+  const idioma = datas.db.data.users[m.sender].language || global.defaultLenguaje;
+  const _translate = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`));
+  const tradutor = _translate.plugins.descargas_instagram;
+
+  if (!args[0])
+    throw `${tradutor.texto1} _${usedPrefix + command} https://www.instagram.com/reel/C8sWV3Nx_GZ/?igsh=MWZoeTY2cW01Nzg1bQ==`;
+  await m.reply(global.wait);
+  try {
+    const img = await instagramDownload(args[0]);
+    for (let i = 0; i < img.data.length; i++) {
+      const item = img.data[i];
+      if (item.type === "image") {
+        await conn.sendMessage(
+          m.chat,
+          { image: { url: item.url } },
+          { quoted: m },
+        );
+      } else if (item.type === "video") {
+        await conn.sendMessage(
+          m.chat,
+          { video: { url: item.url } },
+          { quoted: m },
+        );
+      }
     }
-}
-
-async function downloadVideo(videoUrl) {
-    try {
-        const response = await axios({
-            method: 'get',
-            url: videoUrl,
-            responseType: 'arraybuffer'
-        });
-        return response.data;
-    } catch (error) {
-        throw new Error('No se pudo descargar el video.');
+  } catch (err) {
+    const res = await axios.get(
+      "https://deliriusapi-official.vercel.app/download/instagram",
+      {
+        params: {
+          url: args[0],
+        },
+      },
+    );
+    const result = res.data.data;
+    for (let i = 0; i < result.length; i++) {
+      const item = result[i];
+      if (item.type === "image") {
+        await conn.sendMessage(
+          m.chat,
+          { image: { url: item.url } },
+          { quoted: m },
+        );
+      } else if (item.type === "video") {
+        await conn.sendMessage(
+          m.chat,
+          { video: { url: item.url } },
+          { quoted: m },
+        );
+      }
     }
-}
-
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-    let fkontak = { "key": { "participants": "0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" };
-    
-    if (!args[0]) return conn.reply(m.chat, `🚩 Te Faltó Un Link De Un Video De Instagram`, fkontak, m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply: { showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons } } });
-
-    try {
-        const videoUrl = await getInstagramVideo(args[0]);
-        const videoBuffer = await downloadVideo(videoUrl);
-
-        await conn.sendMessage(m.chat, { video: videoBuffer, fileName: `video.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${packname}  ❱━⬣\n┃ 💜 𝙏𝙄𝙏𝙐𝙇𝙊\n┃ Video descargado\n╰━━━━━❰ *${vs}* ❱━━━━⬣` }, { quoted: m });
-    } catch (error) {
-        await conn.reply(m.chat, `Error: ${error.message}`, fkontak);
-    }
+  }
 };
 
-handler.tags = ['descargas', 'instagram'];
-handler.help = ['instavideo *<url instagram>*'];
-handler.command = /^instavideo|instadl$/i;
+handler.command =
+  /^(instagramdl|instagram|igdl|ig|instagramdl2|instagram2|igdl2|ig2|instagramdl3|instagram3|igdl3|ig3)$/i;
 export default handler;
-                   
+
+const instagramDownload = async (url) => {
+  return new Promise(async (resolve) => {
+    if (!url.match(/\/(reel|reels|p|stories|tv|s)\/[a-zA-Z0-9_-]+/i)) {
+      return resolve({ status: false, creator: "Sareth" });
+    }
+
+    try {
+      let jobId = await (
+        await axios.post(
+          "https://app.publer.io/hooks/media",
+          {
+            url: url,
+            iphone: false,
+          },
+          {
+            headers: {
+              Accept: "/",
+              "Accept-Encoding": "gzip, deflate, br, zstd",
+              "Accept-Language": "es-ES,es;q=0.9",
+              "Cache-Control": "no-cache",
+              Origin: "https://publer.io",
+              Pragma: "no-cache",
+              Priority: "u=1, i",
+              Referer: "https://publer.io/",
+              "Sec-CH-UA":
+                '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+              "Sec-CH-UA-Mobile": "?0",
+              "Sec-CH-UA-Platform": '"Windows"',
+              "User-Agent":
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+            },
+          },
+        )
+      ).data.job_id;
+      let status = "working";
+      let jobStatusResponse;
+      while (status !== "complete") {
+        jobStatusResponse = await axios.get(
+          `https://app.publer.io/api/v1/job_status/${jobId}`,
+          {
+            headers: {
+              Accept: "application/json, text/plain, /",
+              "Accept-Encoding": "gzip, deflate, br, zstd",
+              "Accept-Language": "es-ES,es;q=0.9",
+              "Cache-Control": "no-cache",
+              Origin: "https://publer.io",
+              Pragma: "no-cache",
+              Priority: "u=1, i",
+              Referer: "https://publer.io/",
+              "Sec-CH-UA":
+                '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+              "Sec-CH-UA-Mobile": "?0",
+              "Sec-CH-UA-Platform": '"Windows"',
+              "User-Agent":
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+            },
+          },
+        );
+        status = jobStatusResponse.data.status;
+      }
+
+      let data = jobStatusResponse.data.payload.map((item) => {
+        return {
+          type: item.type === "photo" ? "image" : "video",
+          url: item.path,
+        };
+      });
+
+      resolve({
+        status: true,
+        data,
+      });
+    } catch (e) {
+      resolve({
+        status: false,
+        msg: new Error(e).message,
+      });
+    }
+  });
+};
