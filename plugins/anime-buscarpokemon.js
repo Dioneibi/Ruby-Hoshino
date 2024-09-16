@@ -11,20 +11,31 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 
     // Realiza la solicitud a la PokeAPI
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
-    
+    const speciesRes = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}`);
+
     // Procesa el resultado
     const data = res.data;
+    const speciesData = speciesRes.data;
+    
     const nombrePokemon = data.name.charAt(0).toUpperCase() + data.name.slice(1);
     const tipo = data.types.map(type => type.type.name).join(', ');
     const altura = data.height / 10;  // Convertir altura a metros
     const peso = data.weight / 10;    // Convertir peso a kilogramos
-
-    // Envía el resultado al chat
+    const imagen = data.sprites.front_default; // URL de la imagen PNG
+    const regiones = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
+    const biografia = speciesData.flavor_text_entries.find(entry => entry.language.name === 'es')?.flavor_text || 'No disponible';
+    
+    // Enviar el resultado al chat
     const mensaje = `✨ *Información del Pokémon*:
 🦠 *Nombre*: ${nombrePokemon}
 🔮 *Tipo*: ${tipo}
 📏 *Altura*: ${altura} m
-⚖️ *Peso*: ${peso} kg`;
+⚖️ *Peso*: ${peso} kg
+🌍 *Regiones*: ${regiones}
+📍 *Ubicaciones*: ${speciesData.habitat ? speciesData.habitat.name : 'Desconocido'}
+📜 *Biografía*: ${biografia.replace(/\f/g, ' ')}
+
+![Imagen de ${nombrePokemon}](${imagen})`;
 
     conn.reply(m.chat, mensaje, m);
   } catch (error) {
@@ -40,4 +51,4 @@ handler.help = ['buscarpokemon'];
 handler.limit = true;
 
 export default handler;
-  
+      
