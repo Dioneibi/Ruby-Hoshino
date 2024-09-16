@@ -54,7 +54,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 ⚖️ *Peso*: ${peso} kg
 💪 *Habilidades*: ${habilidades}
 ⚔️ *Movimientos*: ${movimientos}
-🌍 *Regiones*: ${regiones}
+🌍 *habitat*: ${regiones}
 
 📜 *Biografía*: ${biografia}
 🔄 *Evoluciones*: ${evoluciones.join(' -> ')}`;
