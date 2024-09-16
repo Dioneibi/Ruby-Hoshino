@@ -1,39 +1,41 @@
-import axios from 'axios';
-import fetch from 'node-fetch';
+// Asumiendo que ya tienes las configuraciones de tu bot
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) return conn.reply(m.chat, '🚩 Ingrese el enlace de un archivo de Mediafire.', m, rcanal);
-    if (!args[0].match(/mediafire/gi)) return conn.reply(m.chat, '🍟 El enlace debe ser de un archivo de Mediafire.', m, rcanal);
-    try {
-        await m.react(rwait);
+let fetch = require('node-fetch');
 
-        // Llamada a la API de Dorratz
-        let res = await axios.get(`https://api.dorratz.com/v2/mediafire-dl?url=${args[0]}`);
-        let { filename, filesize, filetype, download } = res.data.result;
+async function mediafireHandler(m, { args }) {
+    if (!args[0]) return m.reply('Por favor, proporciona un enlace de MediaFire.');
 
-        let txt = `乂  *¡MEDIAFIRE - DESCARGAS!*  乂\n\n`;
-        txt += `✩ *Nombre* : ${filename}\n`;
-        txt += `✩ *Peso* : ${filesize}\n`;
-        txt += `✩ *Tipo* : ${filetype}\n\n`;
-        txt += `*- ↻ El archivo se está enviando, espera un momento...*`;
-
-        let img = await (await fetch('https://i.ibb.co/wLQFn7q/logo-mediafire.jpg')).buffer();
-        await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, fkontak, null, rcanal);
-
-        // Enviar el archivo descargado
-        await conn.sendFile(m.chat, download, filename, null, fkontak, null, { mimetype: filetype, asDocument: true });
-        await m.react(done);
-    } catch (error) {
-        console.error(error);
-        await m.react(error);
-        conn.reply(m.chat, '🚨 Ocurrió un error al intentar descargar el archivo. Inténtalo de nuevo más tarde.', m, rcanal);
+    let url = args[0];
+    
+    if (!url.includes('mediafire.com')) {
+        return m.reply('El enlace proporcionado no es válido. Asegúrate de que sea un enlace de MediaFire.');
     }
-};
+
+    try {
+        let res = await fetch(`https://api.dorratz.com/v2/mediafire-dl?url=${encodeURIComponent(url)}`);
+        if (!res.ok) throw new Error('Error al obtener el archivo de MediaFire.');
+
+        let json = await res.json();
+        if (json.status !== true) throw new Error('No se pudo procesar el enlace.');
+
+        let { filename, filesize, filetype, filelink } = json.result;
+        
+        // Envía la información del archivo y el enlace directo al usuario
+        m.reply(`
+        📂 *Nombre del archivo*: ${filename}
+        🗂 *Tamaño*: ${filesize}
+        📄 *Tipo*: ${filetype}
+        🔗 *Descarga*: ${filelink}
+        `);
+
+    } catch (e) {
+        m.reply('Ocurrió un error al intentar descargar el archivo.');
+    }
+}
 
 handler.help = ['mediafire'];
 handler.tags = ['descargas'];
-handler.command = ['mediafire', 'mdfire', 'mf'];
+handler.command = ['mediafire', 'mdfire', 'mf']; 
 handler.premium = false;
 
-export default handler;
-        
+module.exports = mediafireHandler;
