@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { MessageMedia } from 'whatsapp-web.js'; // Asegúrate de tener esta librería
 
 const handler = async (m, { conn, usedPrefix, command }) => {
   try {
@@ -21,7 +22,6 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     const imagen = data.sprites.front_default;
 
     // Información adicional (regiones, biografía)
-    // Consulta para obtener información adicional de Pokémon
     const speciesRes = await axios.get(data.species.url);
     const speciesData = speciesRes.data;
     const regiones = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
@@ -29,8 +29,13 @@ const handler = async (m, { conn, usedPrefix, command }) => {
       .find(entry => entry.language.name === 'es')
       ?.flavor_text || 'Biografía no disponible';
 
-    // Prepara el mensaje de texto
-    const mensajeTexto = `✨ *Información del Pokémon*:
+    // Descarga la imagen del Pokémon
+    const imageRes = await axios.get(imagen, { responseType: 'arraybuffer' });
+    const imageData = Buffer.from(imageRes.data, 'binary').toString('base64');
+    const media = new MessageMedia('image/png', imageData, `${nombrePokemon}.png`);
+
+    // Envía el mensaje con imagen y texto
+    const mensaje = `✨ *Información del Pokémon*:
 🦠 *Nombre*: ${nombrePokemon}
 🔮 *Tipo*: ${tipos}
 📏 *Altura*: ${altura} m
@@ -39,9 +44,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 
 📜 *Biografía*: ${biografia}`;
 
-    // Envía el mensaje con el texto y la imagen
-    await conn.sendMessage(m.chat, { text: mensajeTexto }, { quoted: m });
-    await conn.sendMessage(m.chat, { image: { url: imagen }, caption: 'Imagen del Pokémon' }, { quoted: m });
+    await conn.sendMessage(m.chat, media, { caption: mensaje });
   } catch (error) {
     console.error(error);
     conn.reply(m.chat, 'Lo siento, no se pudo obtener la información del Pokémon. Asegúrate de que el nombre sea correcto.', m);
@@ -55,3 +58,4 @@ handler.help = ['buscarpokemon'];
 handler.limit = true;
 
 export default handler;
+    
