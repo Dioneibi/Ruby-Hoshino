@@ -18,17 +18,33 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     const tipos = data.types.map(type => type.type.name).join(', ');
     const altura = (data.height / 10).toFixed(2);  // Convertir altura a metros
     const peso = (data.weight / 10).toFixed(2);    // Convertir peso a kilogramos
+    const habilidades = data.abilities.map(ability => ability.ability.name).join(', ');
+    const movimientos = data.moves.map(move => move.move.name).slice(0, 5).join(', ');  // Mostrar los primeros 5 movimientos
     const imagen = data.sprites.other['official-artwork'].front_default;  // Imagen HD
 
     // Información adicional (regiones, biografía)
     const speciesRes = await axios.get(data.species.url);
     const speciesData = speciesRes.data;
-    const habitat = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
-
-    // Obtener la biografía en español
+    const regiones = speciesData.habitat ? speciesData.habitat.name : 'Desconocido';
     const biografia = speciesData.flavor_text_entries
       .find(entry => entry.language.name === 'es')
       ?.flavor_text || 'Biografía no disponible';
+
+    // Información de evoluciones
+    const evolutionChainRes = await axios.get(speciesData.evolution_chain.url);
+    const evolutionChainData = evolutionChainRes.data;
+    const evoluciones = extractEvolutions(evolutionChainData.chain);
+
+    // Función para extraer evoluciones
+    function extractEvolutions(chain, evolutions = []) {
+      if (chain.evolves_to.length > 0) {
+        evolutions.push(chain.species.name);
+        chain.evolves_to.forEach(evo => extractEvolutions(evo, evolutions));
+      } else {
+        evolutions.push(chain.species.name);
+      }
+      return evolutions;
+    }
 
     // Prepara el mensaje de texto para el caption de la imagen
     const caption = `✨ *Información del Pokémon*:
@@ -36,9 +52,12 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 🔮 *Tipo*: ${tipos}
 📏 *Altura*: ${altura} m
 ⚖️ *Peso*: ${peso} kg
-🌍 *Hábitat*: ${habitat}
+💪 *Habilidades*: ${habilidades}
+⚔️ *Movimientos*: ${movimientos}
+🌍 *Regiones*: ${regiones}
 
-📜 *Biografía*: ${biografia}`;
+📜 *Biografía*: ${biografia}
+🔄 *Evoluciones*: ${evoluciones.join(' -> ')}`;
 
     // Envía la imagen con la información en el caption
     await conn.sendMessage(m.chat, { image: { url: imagen }, caption }, { quoted: m });
