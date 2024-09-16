@@ -1,5 +1,5 @@
 {
-"name": "VermeilBot-MD",
+"name": "Ruby-Hoshino",
 "version": "0.0.1", 
 "description": "Super Bot De WhatsApp",
 "main": "index.js",
@@ -17,16 +17,16 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
 
-"homepage": "https://github.com/nevi67/VermeilBot-MD",
+"homepage": "https://github.com/Dioneibi/Ruby-Hoshino",
 "author": {
-"name": "NeviGamer" },
+"name": "Dioneibi" },
 
 "repository": {
 "type": "git",
-"url": "git+https://github.com/nevi67/VermeilBot-MD.git" },
+"url": "git+https://github.com/Dioneibi/Ruby-Hoshino.git" },
 
 "bugs": {
-"url": "https://github.com/nevi67/VermeilBot-MD/issues" },
+"url": "https://github.com/Dioneibi/Ruby-Hoshino/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
 "@adiwajshing/keyed-db": "^0.2.4",
