@@ -28,8 +28,8 @@ const handler = async (m, { conn, usedPrefix, command }) => {
       .find(entry => entry.language.name === 'es')
       ?.flavor_text || 'Biografía no disponible';
 
-    // Prepara el mensaje de texto
-    const mensajeTexto = `✨ *Información del Pokémon*:
+    // Prepara el mensaje de texto para el caption de la imagen
+    const caption = `✨ *Información del Pokémon*:
 🦠 *Nombre*: ${nombrePokemon}
 🔮 *Tipo*: ${tipos}
 📏 *Altura*: ${altura} m
@@ -38,11 +38,8 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 
 📜 *Biografía*: ${biografia}`;
 
-    // Envía la imagen primero
-    await conn.sendMessage(m.chat, { image: { url: imagen }, caption: 'Imagen del Pokémon' }, { quoted: m });
-
-    // Luego, envía el mensaje de texto
-    await conn.sendMessage(m.chat, { text: mensajeTexto }, { quoted: m });
+    // Envía la imagen con la información en el caption
+    await conn.sendMessage(m.chat, { image: { url: imagen }, caption }, { quoted: m });
 
   } catch (error) {
     console.error(error);
@@ -57,4 +54,3 @@ handler.help = ['buscarpokemon'];
 handler.limit = true;
 
 export default handler;
-  
