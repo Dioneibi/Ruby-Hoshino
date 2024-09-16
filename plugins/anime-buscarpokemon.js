@@ -69,9 +69,9 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 };
 
 // Configuración del comando
-handler.command = ['buscarpokemon', 'findpokemon'];
+handler.command = ['pokedex', 'findpokemon'];
 handler.tags = ['pokemon'];
-handler.help = ['buscarpokemon'];
+handler.help = ['pokedex (pokemon)'];
 handler.limit = true;
 
 export default handler;
