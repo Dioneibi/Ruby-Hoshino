@@ -6,7 +6,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     const pokemonName = m.text.split(' ')[1];  
 
     if (!pokemonName) {
-      return conn.reply(m.chat, 'Por favor, proporciona el nombre de un Pokémon para buscar.', m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons}}});
+      return conn.reply(m.chat, '🌸 *Por favor, proporciona el nombre de un Pokémon para buscar*.', m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons}}});
     }
 
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
@@ -57,7 +57,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 
   } catch (error) {
     console.error(error);
-    conn.reply(m.chat, 'Lo siento, no se pudo obtener la información del Pokémon. Asegúrate de que el nombre sea correcto.', m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons}}});
+    conn.reply(m.chat, '*Lo siento, no se pudo obtener la información del Pokémon. Asegúrate de que el nombre sea correcto*.', m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons}}});
   }
 };
 
