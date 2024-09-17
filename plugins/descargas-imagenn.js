@@ -25,6 +25,6 @@ let handler = async (m, { conn, args }) => {
 
 handler.tags = ['imágenes'];
 handler.help = ['imagen *<texto>*'];
-handler.command = /^imagen$/i;
+handler.command = /^imagenn$/i;
 
 export default handler;
