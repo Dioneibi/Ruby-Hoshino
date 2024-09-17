@@ -1,3 +1,4 @@
+//codigo creado por Dioneibi
 let handler = async (m, { conn, args }) => {
     let target = args[0];
     if (!target) return conn.reply(m.chat, '🚩 Necesitas proporcionar una URL o IP para el "ataque".', m);
@@ -9,15 +10,15 @@ let handler = async (m, { conn, args }) => {
 
     // Mensajes de simulación
     await conn.reply(m.chat, `🔁 Enviando 1,000,000 de paquetes de datos...`, m);
-    await new Promise(resolve => setTimeout(resolve, 2000));  // Espera 2 segundos
+    await new Promise(resolve => setTimeout(resolve, 3000));  
 
     await conn.reply(m.chat, `📡 Sobrecargando servidores...`, m);
-    await new Promise(resolve => setTimeout(resolve, 3000));  // Espera 3 segundos
+    await new Promise(resolve => setTimeout(resolve, 4000));  
 
     await conn.reply(m.chat, `💥 Ataque completado. Servidor de ${target} está "caído".`, m);
 };
 
-handler.help = ['ddos *<url/ip>*'];
-handler.tags = ['broma'];
-handler.command = /^(ddos|fakeattack)$/i;
+handler.help = ['DDoS *<url/ip>*'];
+handler.tags = ['fun'];
+handler.command = /^(DDoS|fakeattack)$/i;
 export default handler;
