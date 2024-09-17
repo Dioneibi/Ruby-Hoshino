@@ -18,8 +18,8 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     const altura = (data.height / 10).toFixed(2);  // Convertir altura a metros
     const peso = (data.weight / 10).toFixed(2);    // Convertir peso a kilogramos
     const habilidades = data.abilities.map(ability => ability.ability.name).join(', ');
-    const movimientos = data.moves.map(move => move.move.name).slice(0, 5).join(', ');  // Mostrar los primeros 5 movimientos
-    const imagen = data.sprites.other['official-artwork'].front_default;  // Imagen HD
+    const movimientos = data.moves.map(move => move.move.name).slice(0, 5).join(', ');
+    const imagen = data.sprites.other['official-artwork'].front_default;
 
     const speciesRes = await axios.get(data.species.url);
     const speciesData = speciesRes.data;
