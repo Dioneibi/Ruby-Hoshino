@@ -1,30 +1,47 @@
-import { igdl } from "ruhend-scraper"
+import axios from 'axios';
 
-let handler = async (m, { args, conn }) => { 
-if (!args[0]) {
-return conn.reply(m.chat, '🍟 *Ingresa un link de Instagram*', m, rcanal)}
-try {
-await m.react(rwait)
-conn.reply(m.chat, `🕒 *Enviando El Video...*`, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: wm,
-previewType: 0, thumbnail: icons,
-sourceUrl: channel }}})      
-let res = await igdl(args[0])
-let data = res.data       
-for (let media of data) {
-await new Promise(resolve => setTimeout(resolve, 2000))           
-await conn.sendFile(m.chat, media.url, 'instagram.mp4', '🍟 *Tu video de instagram.*\n' + textbot, fkontak)
-}} catch {
-await m.react(error)
-conn.reply(m.chat, '🚩 Ocurrió un error.', m, fake)}}
+const OPENAI_API_KEY = 'sk-nZrqy5EOC5P1Ozr1CJgKC53Wir51pIDnkmpId7lFCST3BlbkFJMmBlATUzbuoZmIB_C2P9uH2EPTkkI3zhLaBGC7dfIA'; // Tu clave API de OpenAI
 
-handler.command = ['instagram', 'ig']
-handler.tags = ['descargas']
-handler.help = ['instagram', 'ig']
-handler.estrellas = 1
-handler.group = true;
-handler.register = true
+async function generateImage(prompt) {
+    try {
+        const response = await axios.post('https://api.openai.com/v1/images/generations', {
+            prompt: prompt,
+            n: 1,
+            size: '512x512' // Tamaño de la imagen
+        }, {
+            headers: {
+                'Authorization': `Bearer ${OPENAI_API_KEY}`,
+                'Content-Type': 'application/json'
+            }
+        });
 
-export default handler
+        if (response.data && response.data.data && response.data.data[0]) {
+            return response.data.data[0].url;
+        } else {
+            throw new Error('No se pudo generar la imagen.');
+        }
+    } catch (error) {
+        throw new Error(`Error al generar la imagen: ${error.message}`);
+    }
+}
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+    let fkontak = { "key": { "participants": "0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" };
+
+    if (!args[0]) return conn.reply(m.chat, `🚩 Te Faltó Un Texto Para Generar La Imagen`, fkontak, m, { contextInfo: { 'forwardingScore': 0, 'isForwarded': false, externalAdReply: { showAdAttribution: false, title: packname, body: `👋 Hola ` + nombre, mediaType: 3, sourceUrl: redes, thumbnail: icons } } });
+
+    let description = args.join(' ');
+
+    try {
+        let imageUrl = await generateImage(description);
+        await conn.sendMessage(m.chat, { image: { url: imageUrl }, caption: `Imagen generada con éxito para la descripción: "${description}"` }, { quoted: m });
+    } catch (error) {
+        await conn.reply(m.chat, `Error: ${error.message}`, fkontak);
+    }
+};
+
+handler.tags = ['generación'];
+handler.help = ['genimg *<descripción>*'];
+handler.command = /^genimg|generarimagen$/i;
+export default handler;
+                   
