@@ -2,22 +2,22 @@ import axios from 'axios';
 
 const handler = async (m, { conn, usedPrefix, command }) => {
   try {
-    const pokemonName = m.text.split(' ')[1];  
+    const pokemonName = m.text.split(' ')[1];
 
     if (!pokemonName) {
-      return conn.reply(m.chat, 'Por favor, proporciona el nombre de un Pokémon para buscar.', m, {
-        contextInfo: {
-          'forwardingScore': 0,
-          'isForwarded': false,
-          externalAdReply: {
-            showAdAttribution: false,
-            title: packname,
-            body: `👋 Hola ` + nombre,
-            mediaType: 3,
-            sourceUrl: redes,
-            thumbnail: icons
+      return conn.reply(m.chat, 'Por favor, proporciona el nombre de un Pokémon para buscar.', m, 
+        { contextInfo: { 
+          'forwardingScore': 0, 
+          'isForwarded': false, 
+          externalAdReply: { 
+            showAdAttribution: false, 
+            title: packname, 
+            body: `👋 Hola ` + nombre, 
+            mediaType: 3, 
+            sourceUrl: redes, 
+            thumbnail: icons 
           }
-        }
+        } 
       });
     }
 
@@ -60,42 +60,28 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 ⚖️ *Peso*: ${peso} kg
 💪 *Habilidades*: ${habilidades}
 ⚔️ *Movimientos*: ${movimientos}
-🌍 *hábitat*: ${regiones}
+🌍 *habitat*: ${regiones}
 
 📜 *Biografía*: ${biografia}
 🔄 *Evoluciones*: ${evoluciones.join(' -> ')}`;
 
-    await conn.sendMessage(m.chat, { image: { url: imagen }, caption }, { 
-      quoted: m,
-      contextInfo: {
-        'forwardingScore': 0,
-        'isForwarded': false,
-        externalAdReply: {
-          showAdAttribution: false,
-          title: packname,
-          body: `👋 Hola ` + nombre,
-          mediaType: 3,
-          sourceUrl: redes,
-          thumbnail: icons
-        }
-      }
-    });
+    await conn.sendMessage(m.chat, { image: { url: imagen }, caption }, { quoted: m });
 
   } catch (error) {
     console.error(error);
-    conn.reply(m.chat, 'Lo siento, no se pudo obtener la información del Pokémon. Asegúrate de que el nombre sea correcto.', m, {
-      contextInfo: {
-        'forwardingScore': 0,
-        'isForwarded': false,
-        externalAdReply: {
-          showAdAttribution: false,
-          title: packname,
-          body: `👋 Hola ` + nombre,
-          mediaType: 3,
-          sourceUrl: redes,
-          thumbnail: icons
+    conn.reply(m.chat, 'Lo siento, no se pudo obtener la información del Pokémon. Asegúrate de que el nombre sea correcto.', m, 
+      { contextInfo: { 
+        'forwardingScore': 0, 
+        'isForwarded': false, 
+        externalAdReply: { 
+          showAdAttribution: false, 
+          title: packname, 
+          body: `👋 Hola ` + nombre, 
+          mediaType: 3, 
+          sourceUrl: redes, 
+          thumbnail: icons 
         }
-      }
+      } 
     });
   }
 };
