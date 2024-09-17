@@ -1,3 +1,4 @@
+//codigo creado por Dioneibi
 import axios from 'axios';
 
 const handler = async (m, { conn, usedPrefix, command }) => {
