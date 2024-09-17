@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const handler = async (m, { conn, usedPrefix, command }) => {
   try {
-    // Extrae el nombre del Pokémon del mensaje del usuario
+    
     const pokemonName = m.text.split(' ')[1];  // Asume que el nombre del Pokémon sigue al comando
 
     if (!pokemonName) {
