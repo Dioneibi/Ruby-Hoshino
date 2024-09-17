@@ -1,4 +1,4 @@
-import axios from 'axios';
+import {googleImage} from '@bochilteam/scraper
 
 let handler = async (m, { conn, args }) => {
     if (!args.length) return conn.reply(m.chat, `🚩 Faltó el texto de entrada para la generación de la imagen.`, m);
