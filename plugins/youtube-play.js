@@ -1,96 +1,73 @@
-import fetch from "node-fetch";
-import yts from "yt-search";
-import { igdl } from "ruhend-scraper"; // Importa el scraper que te permite descargar
+import fetch from 'node-fetch';
+import yts from 'yt-search';
+import ytdl from 'ytdl-core';
+import axios from 'axios';
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
-let handler = async (m, { conn, command, args, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `🚩 *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Distancia - Kimberly Contreraxx`,  m, rcanal, );
-
-    conn.reply(m.chat, global.wait, m, {
-        contextInfo: {
-            externalAdReply: {
-                mediaUrl: null,
-                mediaType: 1,
-                showAdAttribution: true,
-                title: packname,
-                body: wm,
-                previewType: 0,
-                thumbnail: icons,
-                sourceUrl: channel
-            }
-        }
-    });
+const handler = async (m, { conn, command, args, text, usedPrefix }) => {
+    if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 
     try {
-        await m.react(rwait);
-        let yt_play = await search(args.join(" "));
-        let img = await (await fetch(`${yt_play[0].image}`)).buffer();
+        const yt_play = await search(args.join(' '));  // Busca el video en YouTube con la query proporcionada
 
-        let txt = `*乂  Y O U T U B E  -  P L A Y  乂*\n\n`;
-        txt += `✩ *𝐓𝐢𝐭𝐮𝐥𝐨:*\n${yt_play[0].title}\n\n`;
-        txt += `✩ *𝐃𝐮𝐫𝐚𝐜𝐢𝐨𝐧:*\n${secondString(yt_play[0].duration.seconds)}\n\n`;
-        txt += `✩ *𝐏𝐮𝐛𝐥𝐢𝐜𝐚𝐝𝐨 𝐄𝐧:*\n${yt_play[0].ago}\n\n`;
-        txt += `✩ *𝐄𝐧𝐥𝐚𝐜𝐞:*\n${'https://youtu.be/' + yt_play[0].videoId}\n\n`;
-        txt += `✨️ *Nota:* Para descargar responde a este mensaje con *1* o *2*.\n\n`;
-        txt += `*1:* Video\n*2:* Audio`;
+        const texto1 = `
+╭───⬪══🅳🄴🅂🄲🄰🅁🄶🄰🅂══⬪───╮
+├─ 🅃𝕚𝕥𝕦𝕝𝕠: ${yt_play[0].title}
+├─ 🄿𝕦𝕓𝕝𝕚𝕔𝕒𝕕𝕠: ${yt_play[0].ago}
+├─ 🄳𝕦𝕣𝕒𝕔𝕚𝕠𝕟: ${secondString(yt_play[0].duration.seconds)}
+├─ 🅅𝕚𝕤𝕥𝕒𝕤: ${MilesNumber(yt_play[0].views)}
+├─ 🄰𝕦𝕥𝕠𝕣(𝕒): ${yt_play[0].author.name}
+├─ 🄴𝕟𝕝𝕒𝕔𝕖: ${yt_play[0].url}
+╰───⬪══════⬪───╯`.trim();
 
-        await conn.sendMessage(m.chat, {
-            text: txt,
-            contextInfo: { 
-                forwardingScore: 9999, 
-                isForwarded: true, 
-                externalAdReply: {
-                    title: `${yt_play[0].title}`,
-                    body: dev,
-                    thumbnailUrl: img,
-                    thumbnail: img,
-                    sourceUrl: `${yt_play[0].url}`,
-                    mediaType: 1,
-                    renderLargerThumbnail: true
-                }
-            }
-        }, { quoted: fkontak });
+        // Enviar un botón que permita al usuario elegir entre audio o video
+        await conn.sendButton(
+            m.chat, 
+            "¿Quieres descargar como audio o video?", 
+            texto1, 
+            yt_play[0].thumbnail, 
+            [
+                ['🔥 Audio', `${usedPrefix}play5 ${yt_play[0].url}`],
+                ['🔥 Video', `${usedPrefix}play6 ${yt_play[0].url}`]
+            ], 
+            null, 
+            null
+        );
 
-        await m.react(done);
-
-        // Aquí es donde se manejará la descarga
-        const userResponse = await m.response; // Captura la respuesta del usuario (si responde 1 o 2)
-
-        if (userResponse == '1') {
-            // Descargar Video
-            let videoUrl = `https://youtu.be/${yt_play[0].videoId}`;
-            let videoInfo = await igdl(videoUrl); // Utiliza la dependencia ruhend-scraper para descargar el video
-            await conn.sendMessage(m.chat, { video: { url: videoInfo.url }, caption: `Aquí está tu video: ${yt_play[0].title}` });
-        } else if (userResponse == '2') {
-            // Descargar Audio
-            let videoUrl = `https://youtu.be/${yt_play[0].videoId}`;
-            let videoInfo = await igdl(videoUrl); // Utiliza ruhend-scraper
-            await conn.sendMessage(m.chat, { audio: { url: videoInfo.url }, mimetype: 'audio/mpeg', caption: `Aquí está tu audio: ${yt_play[0].title}` });
-        }
-
-    } catch (error) {
-        await m.reply(`✘ Ocurrió un error: ${error.message}`);
+    } catch (e) {
+        await conn.reply(m.chat, `*[ ! ] Hubo un error en el comando, por favor intenta más tarde.*`, m);
+        console.error(`❗❗ Error en ${usedPrefix + command}:`, e);
     }
 };
 
-handler.help = ['play *<búsqueda>*', 'play2 *<busqueda>*'];
-handler.tags = ['descargas', 'youtube'];
-handler.command = ['play', 'play2'];
+handler.command = ['play', 'play2', 'play3', 'play4'];
+handler.limit = 0;
 handler.register = true;
+handler.group = true;
 export default handler;
 
 async function search(query, options = {}) {
-    let search = await yts.search({ query, hl: "es", gl: "ES", ...options });
+    const search = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
     return search.videos;
+}
+
+function MilesNumber(number) {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1.';
+    const arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp, rep);
+    return arr[1] ? arr.join('.') : arr[0];
 }
 
 function secondString(seconds) {
     seconds = Number(seconds);
-    var h = Math.floor(seconds / 3600);
-    var m = Math.floor((seconds % 3600) / 60);
-    var s = Math.floor(seconds % 60);
-    var hDisplay = h > 0 ? h + ":" : "";
-    var mDisplay = m > 0 ? m + ":" : "";
-    var sDisplay = s > 0 ? s : "";
-    return hDisplay + mDisplay + sDisplay;
-    }
-            
+    const d = Math.floor(seconds / (3600 * 24));
+    const h = Math.floor((seconds % (3600 * 24)) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
+    const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
+    const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
+    const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+    return dDisplay + hDisplay + mDisplay + sDisplay;
+}
