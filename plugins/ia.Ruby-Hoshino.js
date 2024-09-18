@@ -8,8 +8,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (usedPrefix == 'a' || usedPrefix == 'A') return;
-    if (!text) return conn.reply(m.chat, `🍟 *Ingrese su petición*\n🚩 *Ejemplo de uso:* ${usedPrefix + command} ¿Qué opinas sobre el anime?`, m);
+    if (!text) return conn.reply(m.chat, `🍟 *Ingrese su petición*\n🚩 *Ejemplo de uso:* ${usedPrefix + command} ¿Cómo te sientes hoy?`, m);
 
     try {
         await m.react('⏳'); // Indicador de que el bot está pensando
@@ -30,7 +29,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         let res = response.data.choices[0].text.trim();
 
         // Enviar la respuesta al usuario
-        await conn.reply(m.chat, res, m);
+        await conn.sendMessage(m.chat, { text: res }, { quoted: m });
         await m.react('✅'); // Indicador de que la respuesta está lista
 
     } catch (error) {
@@ -44,4 +43,4 @@ handler.tags = ['ai'];
 handler.command = ['ruby'];
 
 export default handler;
-  
+            
