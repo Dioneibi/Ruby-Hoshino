@@ -55,7 +55,7 @@ setTimeout(resolve, 1000)
 }
 let timestamp = speed()
 let latensi = speed() - timestamp
-let luffy = `╭─⬣「 *Info De Vermeil* 」⬣\n`
+let luffy = `╭─⬣「 *Info De Ruby-Hoshino* 」⬣\n`
 luffy += `│ 👑 *Creador* : @${owner[0][0].split('@s.whatsapp.net')[0]}\n`
 luffy += `│ 🍭 *Prefijo* : [  ${usedPrefix}  ]\n`
 luffy += `│ 📦 *Total Plugins* : ${totalf}\n`
@@ -70,7 +70,7 @@ luffy += `│ 🚩 *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}
 luffy += `│ 🐢 *Grupos Registrados* : ${toNum(totalchats)} ( *${totalchats}* )\n`
 luffy += `│ 🍧 *Registrados* : ${toNum(totalreg)} ( *${totalreg}* ) Usuarios\n`
 luffy += `╰─⬣\n\n`
-luffy += `╭─⬣「 *Chats De Vermeil* 」⬣\n`
+luffy += `╭─⬣「 *Chats De Ruby-Hoshino* 」⬣\n`
 luffy += `│ 🧃 *${groupsIn.length}* Chats en Grupos\n`
 luffy += `│ 🌸 *${groupsIn.length}* Grupos Unidos\n`
 luffy += `│ 🍁 *${groupsIn.length - groupsIn.length}* Grupos Salidos\n`
