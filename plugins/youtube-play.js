@@ -1,71 +1,36 @@
 import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
-import axios from 'axios';
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 
     try {
-        const yt_play = await search(args.join(' '));  // Busca el video en YouTube con la query proporcionada
-
+        const yt_play = await search(args.join(' '));
         const texto1 = `
-╭───⬪══🅳🄴🅂🄲🄰🅁🄶🄰🅂══⬪───╮
-├─ 🅃𝕚𝕥𝕦𝕝𝕠: ${yt_play[0].title}
-├─ 🄿𝕦𝕓𝕝𝕚𝕔𝕒𝕕𝕠: ${yt_play[0].ago}
-├─ 🄳𝕦𝕣𝕒𝕔𝕚𝕠𝕟: ${secondString(yt_play[0].duration.seconds)}
-├─ 🅅𝕚𝕤𝕥𝕒𝕤: ${MilesNumber(yt_play[0].views)}
-├─ 🄰𝕦𝕥𝕠𝕣(𝕒): ${yt_play[0].author.name}
-├─ 🄴𝕟𝕝𝕒𝕔𝕖: ${yt_play[0].url}
-╰───⬪══════⬪───╯`.trim();
+╭─🍂⬪🅳🅾🅾🅺🅨🅜🅾🅡⬪─╮
+│
+├ ⚘ 𝕋𝕚𝕥𝕝𝕠: ${yt_play[0].title}
+├ ⚘ 𝔻𝕦𝕣𝕒𝑐𝕚𝕠𝕟: ${secondString(yt_play[0].duration.seconds)}
+├ ⚘ 𝕍𝕚𝕤𝕥𝕒𝕤: ${MilesNumber(yt_play[0].views)}
+├ ⚘ 𝔸𝕦𝕥𝕠𝓇: ${yt_play[0].author.name}
+├ ⚘ 𝔼𝕟𝕝𝕒𝕔𝕖: ${yt_play[0].url}
+╰───────────────────
+`.trim();
 
-        // Enviar un botón que permita al usuario elegir entre audio o video
-        await conn.sendButton(
-            m.chat, 
-            "¿Quieres descargar como audio o video?", 
-            texto1, 
-            yt_play[0].thumbnail, 
-            [
-                ['🔥 Audio', `${usedPrefix}play5 ${yt_play[0].url}`],
-                ['🔥 Video', `${usedPrefix}play6 ${yt_play[0].url}`]
-            ], 
-            null, 
-            null
-        );
-
+        await conn.sendButton(m.chat, texto1, yt_play[0].thumbnail, [['𝐌 𝐄 𝐍 𝐔 💥', `${usedPrefix}menu`], ['🔥 𝗔 𝗨 𝗗 𝗜 𝗢', `${usedPrefix}playaudio ${yt_play[0].url}`], ['🔥 𝗩 𝗜 𝗗 𝗘 𝗢', `${usedPrefix}playvideo ${yt_play[0].url}`]], null, null);
     } catch (e) {
-        await conn.reply(m.chat, `*[ ! ] Hubo un error en el comando, por favor intenta más tarde.*`, m);
-        console.error(`❗❗ Error en ${usedPrefix + command}:`, e);
+        await conn.reply(m.chat, `*[ ! ] ʜᴜʙᴏ ᴜɴ ᴇʀʀᴏʀ ᴇɴ ᴇʟ ᴄᴏᴍᴀɴᴅᴏ ᴘᴏʀ ғᴀᴠᴏʀ ɪɴᴛᴇɴᴛᴀ ᴍᴀs ᴛᴀʀᴅᴇ..*`, null, m);
+        console.log(`❗❗ᴇʀʀᴏʀ ${usedPrefix + command} ❗❗`);
+        console.log(e);
     }
 };
 
-const playAudio = async (m, url, conn) => {
-    try {
-        const info = await ytdl.getInfo(url);
-        const audioStream = ytdl(url, { filter: 'audioonly' });
-        await conn.sendFile(m.chat, audioStream, `${info.videoDetails.title}.mp3`, `Aquí tienes el audio: ${info.videoDetails.title}`, m);
-    } catch (e) {
-        await conn.reply(m.chat, `*[ ! ] Hubo un error al descargar el audio.*`, m);
-        console.error(`❗❗ Error al descargar el audio:`, e);
-    }
-};
-
-const playVideo = async (m, url, conn) => {
-    try {
-        const info = await ytdl.getInfo(url);
-        const videoStream = ytdl(url, { quality: 'highestvideo' });
-        await conn.sendFile(m.chat, videoStream, `${info.videoDetails.title}.mp4`, `Aquí tienes el video: ${info.videoDetails.title}`, m);
-    } catch (e) {
-        await conn.reply(m.chat, `*[ ! ] Hubo un error al descargar el video.*`, m);
-        console.error(`❗❗ Error al descargar el video:`, e);
-    }
-};
-
-handler.command = ['play', 'play2', 'play3', 'play4'];
-handler.limit = 0;
+handler.command = ['play'];
 handler.register = true;
 handler.group = true;
+
 export default handler;
 
 async function search(query, options = {}) {
@@ -92,5 +57,5 @@ function secondString(seconds) {
     const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
     const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
     return dDisplay + hDisplay + mDisplay + sDisplay;
-            }
-            
+}
+    
