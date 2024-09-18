@@ -1,71 +1,27 @@
-import { ytmp4, ytmp3 } from "ruhend-scraper";
+import ytdl from 'ytdl-core';
+import yts from 'yt-search';
 
-let handler = async (m, { conn, command, args, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `🚩 *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Distancia - Kimberly Contreraxx`, m, rcanal);
-    
-    conn.reply(m.chat, global.wait, m, {
-        contextInfo: { 
-            externalAdReply: { 
-                mediaUrl: null, 
-                mediaType: 1, 
-                showAdAttribution: true,
-                title: packname,
-                body: wm,
-                previewType: 0, 
-                thumbnail: icons,
-                sourceUrl: channel 
-            }
-        }
-    });
+let handler = async (m, { conn, command, args, text }) => {
+    if (!text) return conn.reply(m.chat, '🚩 Ingrese el nombre de un video de YouTube', m);
 
-    try {
-        await m.react(rwait);
-        let yt_play = await search(args.join(" "));
-        let img = await (await fetch(`${yt_play[0].image}`)).buffer();
+    let searchResults = await yts(args.join(' '));
+    let video = searchResults.videos[0];
 
-        let txt = `*乂  Y O U T U B E  -  P L A Y  乂*\n\n`;
-        txt += `✩ *𝐓𝐢𝐭𝐮𝐥𝐨:*\n${yt_play[0].title}\n\n`;
-        txt += `✩ *𝐃𝐮𝐫𝐚𝐜𝐢𝐨𝐧:*\n${secondString(yt_play[0].duration.seconds)}\n\n`;
-        txt += `✩ *𝐏𝐮𝐛𝐥𝐢𝐜𝐚𝐝𝐨 𝐄𝐧:*\n${yt_play[0].ago}\n\n`;
-        txt += `✩ *𝐄𝐧𝐥𝐚𝐜𝐞:*\n${'https://youtu.be/' + yt_play[0].videoId}\n\n`;
-        txt += `✨️ *Nota:* Para descargar responde a este mensaje con *1* o *2*.\n\n`;
-        txt += `*1:* Video\n*2:* Audio`;
+    if (!video) return conn.reply(m.chat, 'No se encontró ningún video.', m);
 
-        await conn.sendMessage(m.chat, {
-            text: txt,
-            contextInfo: { 
-                forwardingScore: 9999, 
-                isForwarded: true, 
-                externalAdReply: {
-                    title: `${yt_play[0].title}`,
-                    body: dev,
-                    thumbnailUrl: img,
-                    thumbnail: img,
-                    sourceUrl: `${yt_play[0].url}`,
-                    mediaType: 1,
-                    renderLargerThumbnail: true
-                }
-            }
-        }, { quoted: fkontak });
-        await m.react(done);
+    let txt = `Título: ${video.title}\nDuración: ${video.timestamp}\nEnlace: ${video.url}\n\nResponde con *1* para video o *2* para audio.`;
+    conn.reply(m.chat, txt, m);
 
-        // Respuesta para descargar audio o video
-        if (command === '1') {
-            let videoUrl = await ytDownload(yt_play[0].videoId, 'video');
-            conn.sendFile(m.chat, videoUrl, `${yt_play[0].title}.mp4`, `Aquí está tu video`, m);
-        } else if (command === '2') {
-            let audioUrl = await ytDownload(yt_play[0].videoId, 'audio');
-            conn.sendFile(m.chat, audioUrl, `${yt_play[0].title}.mp3`, `Aquí está tu audio`, m);
-        }
-
-    } catch {
-        await m.reply(`✘ Ocurrío un error`);
+    if (command === '1') {
+        let videoStream = ytdl(video.url, { quality: 'highestvideo' });
+        conn.sendFile(m.chat, videoStream, `${video.title}.mp4`, 'Aquí está tu video', m);
+    } else if (command === '2') {
+        let audioStream = ytdl(video.url, { quality: 'highestaudio' });
+        conn.sendFile(m.chat, audioStream, `${video.title}.mp3`, 'Aquí está tu audio', m);
     }
 };
 
-handler.help = ['play *<búsqueda>*', 'play2 *<busqueda>*'];
-handler.tags = ['descargas', 'youtube'];
-handler.command = ['play', 'play2'];
-handler.register = true;
+handler.help = ['play <búsqueda>'];
+handler.tags = ['descargas'];
+handler.command = ['play'];
 export default handler;
-               
