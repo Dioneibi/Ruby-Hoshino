@@ -11,7 +11,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
         const yt_play = await search(args.join(' '));  // Busca el video en YouTube con la query proporcionada
 
         const texto1 = `
-╭───⬪══🅳🄴🅂🄲🄰🅂══⬪───╮
+╭───⬪══🅳🄴🅂🄲🄰🅁🄶🄰🅂══⬪───╮
 ├─ 🅃𝕚𝕥𝕦𝕝𝕠: ${yt_play[0].title}
 ├─ 🄿𝕦𝕓𝕝𝕚𝕔𝕒𝕕𝕠: ${yt_play[0].ago}
 ├─ 🄳𝕦𝕣𝕒𝕔𝕚𝕠𝕟: ${secondString(yt_play[0].duration.seconds)}
@@ -34,24 +34,31 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
             null
         );
 
-        // Lógica para manejar la descarga del audio o video
-        conn.handler = async (message) => {
-            if (message.body.startsWith(usedPrefix + 'play5 ')) {
-                const url = message.body.split(' ')[1];
-                const info = await ytdl.getInfo(url);
-                const format = ytdl.chooseFormat(info.formats, { quality: 'highestaudio' });
-                await conn.sendMessage(m.chat, { audio: { url: format.url }, mimetype: 'audio/mp4' }, { quoted: message });
-            } else if (message.body.startsWith(usedPrefix + 'play6 ')) {
-                const url = message.body.split(' ')[1];
-                const info = await ytdl.getInfo(url);
-                const format = ytdl.chooseFormat(info.formats, { quality: 'highest' });
-                await conn.sendMessage(m.chat, { video: { url: format.url }, mimetype: 'video/mp4' }, { quoted: message });
-            }
-        };
-
     } catch (e) {
         await conn.reply(m.chat, `*[ ! ] Hubo un error en el comando, por favor intenta más tarde.*`, m);
         console.error(`❗❗ Error en ${usedPrefix + command}:`, e);
+    }
+};
+
+const playAudio = async (m, url, conn) => {
+    try {
+        const info = await ytdl.getInfo(url);
+        const audioStream = ytdl(url, { filter: 'audioonly' });
+        await conn.sendFile(m.chat, audioStream, `${info.videoDetails.title}.mp3`, `Aquí tienes el audio: ${info.videoDetails.title}`, m);
+    } catch (e) {
+        await conn.reply(m.chat, `*[ ! ] Hubo un error al descargar el audio.*`, m);
+        console.error(`❗❗ Error al descargar el audio:`, e);
+    }
+};
+
+const playVideo = async (m, url, conn) => {
+    try {
+        const info = await ytdl.getInfo(url);
+        const videoStream = ytdl(url, { quality: 'highestvideo' });
+        await conn.sendFile(m.chat, videoStream, `${info.videoDetails.title}.mp4`, `Aquí tienes el video: ${info.videoDetails.title}`, m);
+    } catch (e) {
+        await conn.reply(m.chat, `*[ ! ] Hubo un error al descargar el video.*`, m);
+        console.error(`❗❗ Error al descargar el video:`, e);
     }
 };
 
@@ -85,5 +92,5 @@ function secondString(seconds) {
     const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
     const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
     return dDisplay + hDisplay + mDisplay + sDisplay;
-                    }
-                    
+            }
+            
