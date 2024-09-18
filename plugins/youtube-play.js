@@ -1,4 +1,4 @@
-import { igdl, ytDownload } from "ruhend-scraper";
+import { ytmp4, ytmp3 } from "ruhend-scraper";
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!text) return conn.reply(m.chat, `🚩 *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Distancia - Kimberly Contreraxx`, m, rcanal);
