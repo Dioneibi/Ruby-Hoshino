@@ -136,7 +136,7 @@ return conn.reply(m.chat, '☁ *Inténtelo de nuevo*', m, rcanal)}
 
 }
 handler.help = ['play', 'play2']
-handler.tags = ['descargas']
+handler.tags = ['youtube']
 handler.command = ['play', 'play2']
 handler.register = true
 //handler.estrellas = 1
