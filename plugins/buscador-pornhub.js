@@ -7,48 +7,38 @@ import asyncio from 'asyncio'
 let handler = async (message, { conn, text, usedPrefix, command }) => {
     if (!text) return conn.reply(message.chat, '🍟 *¿Qué video deseas buscar en Pornhub?*', message, rcanal)
 
-    // Función para generar mensajes de video para WhatsApp
     async function createVideoMessage(url) {
         const { videoMessage } = await generateWAMessageContent({ video: { url } }, { upload: conn.waUploadToServer })
         return videoMessage
     }
 
     try {
-        // Mostrar mensaje de descarga
-        await message.react('⏳')
+        await message.react(rwait)
         conn.reply(message.chat, '🚩 *Buscando videos en Pornhub...*', message, {
-            contextInfo: {
-                externalAdReply: {
-                    mediaUrl: null,
-                    mediaType: 1,
-                    showAdAttribution: true,
-                    title: 'Buscador de Pornhub',
-                    body: 'Usando API no oficial',
-                    previewType: 0,
-                    thumbnail: 'https://i.imgur.com/thumbnail_placeholder.png', // Imagen de previsualización
-                    sourceUrl: 'https://github.com/Derfirm/pornhub-api' // Fuente de la API
-                }
-            }
+            contextInfo: { externalAdReply: { mediaUrl: null, mediaType: 1, showAdAttribution: true,
+                title: packname,
+                body: wm,
+                previewType: 0, thumbnail: icons,
+                sourceUrl: channel }}
         })
 
         // Iniciar cliente API de Pornhub con AioHttp
         async function searchVideos(query) {
             const api = new PornhubApi()
-            const videos = api.search_videos.search_videos(query, { ordering: 'mostviewed', period: 'weekly' })
+            const videos = api.search_videos.search_videos(query, ordering="mostviewed", period="weekly")
             return videos
         }
 
-        // Realizar la búsqueda de videos con el texto proporcionado
+        // Buscar videos
         const searchResults = await searchVideos(text)
         let results = []
 
-        // Construir mensajes de resultados
         for (let vid of searchResults) {
             results.push({
-                body: proto.Message.InteractiveMessage.Body.fromObject({ text: vid.title }),
-                footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: '🔎 Pornhub - Resultado' }),
+                body: proto.Message.InteractiveMessage.Body.fromObject({ text: null }),
+                footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: textbot }),
                 header: proto.Message.InteractiveMessage.Header.fromObject({
-                    title: vid.title,
+                    title: '' + vid.title,
                     hasMediaAttachment: true,
                     videoMessage: await createVideoMessage(vid.url)
                 }),
@@ -56,7 +46,6 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
             })
         }
 
-        // Enviar el carrusel de resultados
         const responseMessage = generateWAMessageFromContent(message.chat, {
             viewOnceMessage: {
                 message: {
@@ -74,11 +63,10 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
             }
         }, { quoted: message })
 
-        await message.react('✅') // Reacción de éxito
+        await message.react(done)
         await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id })
     } catch (error) {
-        // Manejo de errores
-        await conn.reply(message.chat, '❌ Error: ' + error.toString(), message)
+        await conn.reply(message.chat, error.toString(), message)
     }
 }
 
@@ -89,3 +77,4 @@ handler.tags = ['buscador']
 handler.command = ['pornhubsearch', 'phs', 'pornsearch']
 
 export default handler
+                    
