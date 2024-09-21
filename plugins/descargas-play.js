@@ -4,21 +4,6 @@ import ytdl from 'ytdl-core'
 import axios from 'axios'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
-const fake = {
-  key: {
-    fromMe: false,
-    participant: "0@s.whatsapp.net", // número ficticio de referencia
-    remoteJid: "status@broadcast"
-  },
-  message: {
-    contactMessage: {
-      displayName: "Crosby Batin",
-      vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Batin;Crosby;;;\nFN:Crosby Batin\nitem1.TEL;waid=8294868853:8294868853\nitem1.X-ABLabel:Pretend Contact\nEND:VCARD`
-    }
-  }
-};
-
-
 var handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
 if (!text) return conn.reply(m.chat, `🌸 *Ingrese el nombre de un video de YouTube*\n\nEjemplo, ${usedPrefix + command} Es un Secreto Plan B`,  m, rcanal)
