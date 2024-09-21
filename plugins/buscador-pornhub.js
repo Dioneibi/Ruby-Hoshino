@@ -1,75 +1,56 @@
 import axios from 'axios'
-const { proto, generateWAMessageFromContent, prepareWAMessageMedia, generateWAMessageContent } = (await import("@whiskeysockets/baileys")).default
-const { PornhubApi } = await import('pornhub-api')
-const api = new PornhubApi()
+import { proto, generateWAMessageFromContent, generateWAMessageContent } from '@whiskeysockets/baileys'
+import { PornhubApi } from 'pornhub-api'
+import { AioHttpBackend } from 'pornhub-api/backends/aiohttp'
 
-let handler = async (message, { conn, text }) => {
-    if (!text) return conn.reply(message.chat, '🍟 *¿Qué quieres buscar en Pornhub?*', message, rcanal)
+let handler = async (message, { conn, text, usedPrefix, command }) => {
+    if (!text) return conn.reply(message.chat, '🍟 *¿Qué video deseas buscar en Pornhub?*', message)
 
     async function createVideoMessage(url) {
         const { videoMessage } = await generateWAMessageContent({ video: { url } }, { upload: conn.waUploadToServer })
         return videoMessage
     }
 
-    async function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1))
-            ;[array[i], array[j]] = [array[j], array[i]]
-        }
-    }
-
     try {
-        await message.react(rwait)
-        conn.reply(message.chat, '🚩 *Descargando el video...*', message, {
-            contextInfo: { externalAdReply: { mediaUrl: null, mediaType: 1, showAdAttribution: true, title: packname, body: wm, previewType: 0, thumbnail: icons, sourceUrl: channel } }
-        })
+        await message.react('⏳')
+        conn.reply(message.chat, '🚩 *Buscando videos en Pornhub...*', message)
 
-        // Buscar videos en Pornhub
-        let searchResults = await api.search_videos.search_videos(text, { ordering: "mostviewed", period: "weekly" })
-        shuffleArray(searchResults)
-
-        let selectedResults = searchResults.splice(0, 5) // Mostrar 5 resultados
+        const api = new PornhubApi(new AioHttpBackend())
+        const videos = await api.search_videos.search_videos(text, { ordering: 'mostviewed', period: 'weekly' })
 
         let results = []
-        for (let result of selectedResults) {
+        for (let vid of videos) {
             results.push({
-                body: proto.Message.InteractiveMessage.Body.fromObject({ text: null }),
-                footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: 'Video desde Pornhub' }),
+                body: proto.Message.InteractiveMessage.Body.fromObject({ text: vid.title }),
+                footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: '🔎 Pornhub - Resultado' }),
                 header: proto.Message.InteractiveMessage.Header.fromObject({
-                    title: '' + result.title,
+                    title: vid.title,
                     hasMediaAttachment: true,
-                    videoMessage: await createVideoMessage(result.url) // Crear mensaje con video
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({ buttons: [] })
+                    videoMessage: await createVideoMessage(vid.url)
+                })
             })
         }
 
         const responseMessage = generateWAMessageFromContent(message.chat, {
-            viewOnceMessage: {
-                message: {
-                    messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 },
-                    interactiveMessage: proto.Message.InteractiveMessage.fromObject({
-                        body: proto.Message.InteractiveMessage.Body.create({ text: '🚩 Resultado de: ' + text }),
-                        footer: proto.Message.InteractiveMessage.Footer.create({ text: '🔎 Pornhub - Búsquedas' }),
-                        header: proto.Message.InteractiveMessage.Header.create({ hasMediaAttachment: false }),
-                        carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({ cards: [...results] })
-                    })
-                }
+            interactiveMessage: {
+                body: proto.Message.InteractiveMessage.Body.create({ text: '🚩 Resultados de búsqueda para: ' + text }),
+                footer: proto.Message.InteractiveMessage.Footer.create({ text: '🔎 Pornhub - Búsquedas' }),
+                header: proto.Message.InteractiveMessage.Header.create({ hasMediaAttachment: false }),
+                carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({ cards: [...results] })
             }
         }, { quoted: message })
 
-        await message.react(done)
         await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id })
-
+        await message.react('✅')
     } catch (error) {
-        await conn.reply(message.chat, error.toString(), message)
+        await conn.reply(message.chat, '❌ Error: ' + error.toString(), message)
     }
 }
 
 handler.help = ['pornhubsearch <txt>']
-handler.estrellas = 1
+handler.tags = ['buscador']
+handler.command = ['pornhubsearch', 'phs']
 handler.register = true
-handler.tags = ['nsfw']
-handler.command = ['pornhubsearch', 'phsearch']
+
 export default handler
-            
+                    
