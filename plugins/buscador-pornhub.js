@@ -69,7 +69,7 @@ let handler = async (message, { conn, text }) => {
 handler.help = ['pornhubsearch <txt>']
 handler.estrellas = 1
 handler.register = true
-handler.tags = ['buscador']
+handler.tags = ['nsfw']
 handler.command = ['pornhubsearch', 'phsearch']
 export default handler
             
