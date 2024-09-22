@@ -22,8 +22,10 @@ global.mods = ['18294868853']
 
 global.suittag = ['18294868853',]
 global.prems = []
-// Cambiar a false para usar el Bot desde el mismo numero del Bot.
-global.isBaileysFail = true
+//cambiar a true si el bot detecta sus propios comandos.
+global.isBaileysFail = false
+global.libreria = 'Baileys'
+global.baileys = 'V 6.7.8'
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
 global.packname = '🌹★᭄ꦿ᭄ꦿ✰Rüb̸̤̈ÿ Hös̸̤̈ḧ̸̤ïn̸̤̈ö★᭄ꦿ᭄ꦿ🌹'
