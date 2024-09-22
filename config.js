@@ -34,9 +34,6 @@ global.botname = '⃝𖤐𝐑ᴜβÿ⸸𝐇̶ᴏ𝚂͢𝖍𝐈ᶰ𝐎❟⃤࿚'
 global.dev = '➣ ʳᵉᵛᵉˡᵒᵖᵉʳ ᵇʸ: ᵈᶦᵒⁿᵉⁱᵇⁱ ➣'
 global.textbot = '𝙳𝚒𝚘𝚗𝚎𝚒𝚋𝚒'
 global.vs = '2.0.2'
-global.isBaileysFail = true
-global.libreria = 'Baileys'
-global.baileys = 'V 6.7.7'
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen1 = fs.readFileSync('./Menu.jpg')
