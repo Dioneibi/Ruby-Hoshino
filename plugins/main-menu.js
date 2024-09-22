@@ -146,24 +146,28 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
-    let packname = 'Nombre del Pack' // Define tu packname aquí
-    let team = 'Equipo de desarrollo' // Define tu equipo aquí
-    let imagen1 = 'https://qu.ax/VrzT.jpg' // Define tu miniatura aquí
-    let mediaUrl = global.channel // URL del canal
-    let sourceUrl = global.channel // URL del canal
-
-    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, {
+    await conn.sendMessage(m.chat, {
+      image: { url: pp },
+      caption: text.trim(),
       contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363263466636910@newsletter',
+          newsletterName: '『✯ Team Channe✯』',
+          serverMessageId: -1,
+        },
+        forwardingScore: 999,
         externalAdReply: {
-          title: packname,
-          body: team,
+          title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
+          body: 'Dev', // Asegúrate de definir 'dev' en tu contexto
+          thumbnailUrl: 'icono', // Asegúrate de definir 'icono'
+          sourceUrl: 'redes', // Asegúrate de definir 'redes'
           mediaType: 1,
-          thumbnail: imagen1,
-          mediaUrl: mediaUrl,
-          sourceUrl: sourceUrl
-        }
-      }
-    })
+          renderLargerThumbnail: false,
+        },
+      },
+    }, { quoted: m })
 
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
