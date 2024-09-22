@@ -144,28 +144,26 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-
+    
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
-    await conn.sendMessage(m.chat, {
-      text: text.trim(),
-      mentions: [...text.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'),
+    let packname = 'Nombre del Pack' // Define tu packname aquí
+    let team = 'Equipo de desarrollo' // Define tu equipo aquí
+    let imagen1 = 'URL de la miniatura' // Define tu miniatura aquí
+    let mediaUrl = global.channel // URL del canal
+    let sourceUrl = global.channel // URL del canal
+
+    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, {
       contextInfo: {
-        mentionedJid: [...text.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'),
-        "externalAdReply": {
-          "showAdAttribution": true,
-          "containsAutoReply": true,
-          "renderLargerThumbnail": true,
-          "title": packname,
-          "body": team,
-          "mediaType": 1,
-          "thumbnail": imagen1,
-          "mediaUrl": global.channel,
-          "sourceUrl": global.channel
+        externalAdReply: {
+          title: packname,
+          body: team,
+          mediaType: 1,
+          thumbnail: imagen1,
+          mediaUrl: mediaUrl,
+          sourceUrl: sourceUrl
         }
       }
-    }, { quoted: m });
-
-    await conn.sendFile(m.chat, pp, 'Menu.jpg', '', m, null, rcanal); // Enviar la imagen
+    })
 
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
@@ -183,7 +181,7 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 360                                
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
