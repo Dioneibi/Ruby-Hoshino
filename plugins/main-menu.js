@@ -153,7 +153,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '0029VakLbM76mYPPFL0IFI3P@newsletter',
+          newsletterJid: '120363263466636910@newsletter',
           newsletterName: '『✯ Team Channe✯』',
           serverMessageId: -1,
         },
