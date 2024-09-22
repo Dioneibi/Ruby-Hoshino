@@ -51,7 +51,7 @@ conn.sendMessage(m.chat, {image: {url: 'https://telegra.ph/file/c24470edcbe5e250
 }
 handler.help = ['instalarbot']
 handler.tags = ['main']
-handler.command = /^(instalarTatsumaki|instalarbot)/i
+handler.command = /^(instalarRuby|instalarbot)/i
 
 export default handler
 
