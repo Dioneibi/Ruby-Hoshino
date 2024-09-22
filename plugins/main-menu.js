@@ -160,9 +160,9 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         forwardingScore: 999,
         externalAdReply: {
           title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
-          body: 'Dev', // Asegúrate de definir 'dev' en tu contexto
-          thumbnailUrl: 'icono', // Asegúrate de definir 'icono'
-          sourceUrl: 'redes', // Asegúrate de definir 'redes'
+          body: Dev, // Asegúrate de definir 'dev' en tu contexto
+          thumbnailUrl: icono, // Asegúrate de definir 'icono'
+          sourceUrl: redes, // Asegúrate de definir 'redes'
           mediaType: 1,
           renderLargerThumbnail: false,
         },
