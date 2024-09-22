@@ -1,6 +1,6 @@
 var handler  = async (m, { conn }) => {
 
-let texto = `🚩 *Instalación de Tatsumaki-MD*
+let texto = `🚩 *Instalación de Ruby-Hoshino*
 
 ⬡ Dudas: ${creador}
 ⬡ Tutoríal: *¡Pronto!*
@@ -13,7 +13,7 @@ apt-get update -y && apt-get upgrade -y
 
 pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn
 
-git clone https://github.com/nevi67/VermeilBot-MD && cd VermeilBot-MD && yarn install && npm install 
+git clone https://github.com/Dioneibi/Ruby-Hoshino && cd Ruby-Hoshino && yarn install && npm install 
 
 ls
 
