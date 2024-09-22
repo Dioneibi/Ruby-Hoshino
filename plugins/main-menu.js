@@ -41,10 +41,10 @@ const defaultMenu = {
 
 \t\t\t*L I S T A  -  M E N Ú S*
 `.trimStart(),
-  header: '╭──⬣「 *%category* 」⬣',
-  body: '│  ≡◦ *%cmd*\n',
-  footer: '╰──⬣\n',
-  after: '',
+header: '╭──⬣「 *%category* 」⬣',
+body: '│  ≡◦ *%cmd*\n',
+footer: '╰──⬣\n',
+after: '',
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
@@ -145,8 +145,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     
-    let pp = join(__dirname, 'Menu.jpg')  // Asegúrate de que la ruta es correcta
-    await conn.sendFile(m.chat, pp, 'thumbnail.jpg', text.trim(), m, null, rcanal)
+    let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
+    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, null, rcanal)
 
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
@@ -168,5 +168,5 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-      }
-                                    
+  }
+      
