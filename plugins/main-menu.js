@@ -144,12 +144,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    
-    let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
-    let imagen1 = await conn.getProfilePicture(conn.user.jid).catch(() => ''); // Obtener la imagen del perfil
-    let packname = 'Tu Pack'; // Reemplaza esto con el nombre del pack
-    let team = 'Tu Equipo'; // Reemplaza esto con la descripción del equipo
 
+    let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
     await conn.sendMessage(m.chat, {
       text: text.trim(),
       mentions: [...text.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'),
@@ -168,8 +164,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         }
       }
     }, { quoted: m });
-    
-    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, null, rcanal);
+
+    await conn.sendFile(m.chat, pp, 'Menu.jpg', '', m, null, rcanal); // Enviar la imagen
 
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
@@ -187,7 +183,7 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 360                                
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
