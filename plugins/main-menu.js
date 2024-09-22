@@ -36,8 +36,6 @@ const defaultMenu = {
 │  ≡◦ *💫 XP ∙* %totalexp
 │  ≡◦ *🐢 Nivel ∙* %level
 ╰──⬣
-*Error: -9999 artículos*
-
 %readmore
 *꒷꒦꒷꒷꒦꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒷꒦꒷꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒦꒷*
 
@@ -146,12 +144,32 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-
+    
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
-    let canalLink = 'https://wa.me/1234567890'; // Reemplaza con el enlace de tu canal de WhatsApp
-    text += `\n\n👉 [Únete a nuestro canal](${canalLink})`
+    let imagen1 = await conn.getProfilePicture(conn.user.jid).catch(() => ''); // Obtener la imagen del perfil
+    let packname = 'Tu Pack'; // Reemplaza esto con el nombre del pack
+    let team = 'Tu Equipo'; // Reemplaza esto con la descripción del equipo
 
-    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, null, rcanal)
+    await conn.sendMessage(m.chat, {
+      text: text.trim(),
+      mentions: [...text.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'),
+      contextInfo: {
+        mentionedJid: [...text.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'),
+        "externalAdReply": {
+          "showAdAttribution": true,
+          "containsAutoReply": true,
+          "renderLargerThumbnail": true,
+          "title": packname,
+          "body": team,
+          "mediaType": 1,
+          "thumbnail": imagen1,
+          "mediaUrl": global.channel,
+          "sourceUrl": global.channel
+        }
+      }
+    }, { quoted: m });
+    
+    await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, null, rcanal);
 
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
