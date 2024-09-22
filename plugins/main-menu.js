@@ -148,7 +148,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
     let packname = 'Nombre del Pack' // Define tu packname aquí
     let team = 'Equipo de desarrollo' // Define tu equipo aquí
-    let imagen1 = 'URL de la miniatura' // Define tu miniatura aquí
+    let imagen1 = 'https://qu.ax/VrzT.jpg' // Define tu miniatura aquí
     let mediaUrl = global.channel // URL del canal
     let sourceUrl = global.channel // URL del canal
 
