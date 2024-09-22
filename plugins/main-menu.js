@@ -36,6 +36,8 @@ const defaultMenu = {
 │  ≡◦ *💫 XP ∙* %totalexp
 │  ≡◦ *🐢 Nivel ∙* %level
 ╰──⬣
+*Error: -9999 artículos*
+
 %readmore
 *꒷꒦꒷꒷꒦꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒷꒦꒷꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒦꒷*
 
@@ -144,8 +146,11 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    
+
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
+    let canalLink = 'https://wa.me/1234567890'; // Reemplaza con el enlace de tu canal de WhatsApp
+    text += `\n\n👉 [Únete a nuestro canal](${canalLink})`
+
     await conn.sendFile(m.chat, pp, 'Menu.jpg', text.trim(), m, null, rcanal)
 
   } catch (e) {
@@ -168,5 +173,5 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-  }
-      
+      }
+          
