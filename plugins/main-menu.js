@@ -30,7 +30,9 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `"¡Hola, %name! Mi nombre es *Ruby Hoshino*"
+  before: `
+  
+  "¡Hola, %name! Mi nombre es *Ruby Hoshino*"
 
 
 ╔═══════⩽✦✰✦⩾═══════╗
