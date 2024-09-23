@@ -3,6 +3,8 @@ import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
+const canales = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ'; // Reemplaza con la URL correcta
+
 let tags = {
   'main': '𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈Ó𝐍 📘',
   'buscador': '𝐁𝐔𝐒𝐐𝐔𝐄𝐃𝐀𝐒 🔍',
@@ -185,7 +187,7 @@ readmore: readMore
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: rcanal,
+          newsletterJid: ,
           newsletterName: '『✯ Team Channe✯』',
           serverMessageId: -1,
         },
@@ -194,7 +196,7 @@ readmore: readMore
           title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
           body: dev, // Asegúrate de definir 'dev' en tu contexto
           thumbnailUrl: icono, // Asegúrate de definir 'icono'
-          sourceUrl: redes, // Asegúrate de definir 'redes'
+          sourceUrl: canales, // Asegúrate de definir 'redes'
           mediaType: 1,
           renderLargerThumbnail: false,
         },
