@@ -25,8 +25,8 @@ previewType: 0, thumbnail: icons,
 sourceUrl: channel }}})
 await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_*DESCARGAS - PLAY ⭐*_
 ╭✿------- ✿ ------ ✿
-│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}
-│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* 22m 43s
+│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:*m${title}
+│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:*  ${yt_play[0].ago}
 │𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* 2.422.839
 │𐇵 *𝐴𝑢𝑡𝑜𝑟:* Power Rangers para Niños - Canal Oficial 
 │𐇵 *𝐼𝐷:* zt0S82d9364
