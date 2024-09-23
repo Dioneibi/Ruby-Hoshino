@@ -3,7 +3,7 @@ import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
-const canales = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ'; // Reemplaza con la URL correcta
+const canales = 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P'; // Reemplaza con la URL correcta
 
 let tags = {
   'main': '𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈Ó𝐍 📘',
