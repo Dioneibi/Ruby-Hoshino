@@ -166,7 +166,7 @@ readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-await conn.reply(m.chat, '*✰ Cargando Menú. . .*', m, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: team, sourceUrl: channel, thumbnail: icons }}})
+await conn.reply(m.chat, '*✰ Cargando Menú. . .*', m, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: packname, body: dev, sourceUrl: channel, thumbnail: icons }}})
 
 await m.react('⭐️') 
 
