@@ -27,7 +27,7 @@ await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_*DESCARGAS -
 ╭✿------- ✿ ------ ✿
 │𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:*m${title}
 │𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:*  ${yt_play[0].ago}
-│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* 2.422.839
+│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${MilesNumber(yt_play[0].views)}
 │𐇵 *𝐴𝑢𝑡𝑜𝑟:* Power Rangers para Niños - Canal Oficial 
 │𐇵 *𝐼𝐷:* zt0S82d9364
 │𐇵 *𝑇𝑖𝑝𝑜:* video
