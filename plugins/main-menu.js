@@ -3,7 +3,7 @@ import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
-const canales = 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P'; // Reemplaza con la URL correcta
+const canales = 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P';
 
 let tags = {
   'main': '𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈Ó𝐍 📘',
@@ -194,9 +194,9 @@ readmore: readMore
         forwardingScore: 999,
         externalAdReply: {
           title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
-          body: dev, // Asegúrate de definir 'dev' en tu contexto
-          thumbnailUrl: icono, // Asegúrate de definir 'icono'
-          sourceUrl: canales, // Asegúrate de definir 'redes'
+          body: dev,
+          thumbnailUrl: icono,
+          sourceUrl: canales,
           mediaType: 1,
           renderLargerThumbnail: false,
         },
