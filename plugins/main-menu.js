@@ -197,7 +197,7 @@ readmore: readMore
           body: dev,
           thumbnailUrl: icono,
           sourceUrl: canales,
-          mediaType: 3,
+          mediaType: 1,
           renderLargerThumbnail: false,
         },
       },
