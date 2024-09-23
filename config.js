@@ -28,7 +28,7 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.2'
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
-global.packname = '🌹★᭄ꦿ᭄ꦿ✰Rüb̸̤̈ÿ Hös̸̤̈ḧ̸̤ïn̸̤̈ö★᭄ꦿ᭄ꦿ🌹'
+global.packname = '˚₊·—̳͟͞͞♡⃝✰ȐȖꞖ𝕐-ḦǾŜḨìŇǾᰭ࣪✰⃝𓏲ּ ᥫ᭡ ₊ ⊹ ˑ ִ ֶ 𓂃'
 global.author = '⋆.˚ＤＩＯＮＥＩＢＩ🦋༘⋆'
 global.wm = 'ᴍᴏᴅɪꜰɪᴇʟ ʙʏ: ᴅɪᴏɴᴇɪʙɪ'
 global.titulowm = '˚₊·—̳͟͞͞♡ℝ⃨ᴜ͢ʙʏ⃜✰⃔𝐇ᴏ፝֟s⃨ʜɪɴᴏ𓍢ִ໋🌷͙֒ ᰔᩚ'
