@@ -30,9 +30,20 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `
-  
-  "¡Hola, %name! Mi nombre es *Ruby Hoshino*"
+  before: `─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ೃ ˎ'' •
+┊         ┊       ┊    ┊     ┊        ┊
+┊         ┊       ┊    ┊   ˚✩ ｡˚  ✩
+┊         ┊       ┊   ✩
+┊         ┊       ☾ .｡
+┊         ┊
+
+✧ ˚   ｡
+
+┊ .  ˚
+
+˚✩°
+
+❀"¡Hola, %name! Mi nombre es *Ruby Hoshino*"❞ ˎˊ˗
 
 
 ╔═══════⩽✦✰✦⩾═══════╗
