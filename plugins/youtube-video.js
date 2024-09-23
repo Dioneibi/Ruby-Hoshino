@@ -24,7 +24,7 @@ body: wm,
 previewType: 0, thumbnail: icons,
 sourceUrl: channel }}})
 await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_*DESCARGAS - PLAY ⭐*_
-╭───────┈♡┈──────
+╭✿------- ✿ ------ ✿
 │𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}
 │𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* 22m 43s
 │𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* 2.422.839
@@ -33,7 +33,7 @@ await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_*DESCARGAS -
 │𐇵 *𝑇𝑖𝑝𝑜:* video
 │𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* https://youtube.com/watch?v=zt0S82d9364
 │𐇵 *𝐶𝑎𝑛𝑎𝑙:* https://youtube.com/@PowerRangersNinosOficial
-╰───────┈♢┈──────`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: fkontak })
+╰✿------- ✿ ------ ✿`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: fkontak })
 await m.react(done)
 } catch {
 try {
