@@ -187,7 +187,7 @@ readmore: readMore
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: ,
+          newsletterJid: 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P',
           newsletterName: '『✯ Team Channe✯』',
           serverMessageId: -1,
         },
