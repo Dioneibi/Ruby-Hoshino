@@ -15,7 +15,7 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
     try {
         await m.react(rwait)
         const yt = await fg.ytv(urls[0], q)
-        let { title, dl_url, size } = yt 
+        let { title, dl_url, size, views, author, id } = yt 
 
         if (size.split('MB')[0] >= limit) return conn.reply(m.chat, `🚩 El archivo pesa más de ${limit} MB, se canceló la Descarga.`, m, rcanal) 
 
@@ -26,16 +26,16 @@ let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) =
             previewType: 0, thumbnail: icons,
             sourceUrl: channel }}});
         
-        await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_ *DESCARGAS - MEGUMIN 🔥* _\n╭───────┈♡┈──────\n│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n│𐇵 *𝑃𝑢𝑏𝑙𝑖𝑎𝑑𝑜:* ${new Date().toLocaleDateString()}\n│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* ${size}\n│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${yt.views}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${yt.author}\n│𐇵 *𝐼𝐷:* ${yt.id}\n│𐇵 *𝑇𝑖𝑝𝑜:* video\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${urls[0]}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt.channel}\n╰───────┈♢┈──────\n> *[ ℹ️ ] _𝐒𝐞 𝐞𝐬𝐭𝐚́ 𝐞𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐞𝐥 vídeo. 𝐞𝐬𝐩𝐞𝐫𝐞..._*`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, { quoted: fkontak })
+        await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_ *DESCARGAS - MEGUMIN 🔥* _\n╭───────┈♡┈──────\n│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n│𐇵 *𝑃𝑢𝑏𝑙𝑖𝑎𝑑𝑜:* ${new Date().toLocaleDateString()}\n│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* ${size}\n│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${views}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${author}\n│𐇵 *𝐼𝐷:* ${id}\n│𐇵 *𝑇𝑖𝑝𝑜:* video\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${urls[0]}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt.channel}\n╰───────┈♢┈──────\n> *[ ℹ️ ] _𝐒𝐞 𝐞𝐬𝐭𝐚́ 𝐞𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐞𝐥 vídeo. 𝐞𝐬𝐩𝐞𝐫𝐞..._*`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, { quoted: fkontak })
         await m.react(done)
     } catch {
         try {
             let yt = await fg.ytmp4(urls[0], q)
-            let { title, size, dl_url } = yt
+            let { title, size, dl_url, views, author, id } = yt
 
             if (size.split('MB')[0] >= limit) return conn.reply(m.chat, `🚩 El archivo pesa más de ${limit} MB, se canceló la Descarga.`, m, rcanal) 
 
-            await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_ *DESCARGAS - MEGUMIN 🔥* _\n╭───────┈♡┈──────\n│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n│𐇵 *𝑃𝑢𝑏𝑙𝑖𝑎𝑑𝑜:* ${new Date().toLocaleDateString()}\n│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* ${size}\n│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${yt.views}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${yt.author}\n│𐇵 *𝐼𝐷:* ${yt.id}\n│𐇵 *𝑇𝑖𝑝𝑜:* video\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${urls[0]}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt.channel}\n╰───────┈♢┈──────\n> *[ ℹ️ ] _𝐒𝐞 𝐞𝐬𝐭𝐚́ 𝐞𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐞𝐥 vídeo. 𝐞𝐬𝐩𝐞𝐫𝐞..._*`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, { quoted: fkontak })
+            await conn.sendMessage(m.chat, { video: { url: dl_url }, caption: `_ *DESCARGAS - MEGUMIN 🔥* _\n╭───────┈♡┈──────\n│𐇵 *𝑻𝒊𝒕𝒖𝒍𝒐:* ${title}\n│𐇵 *𝑃𝑢𝑏𝑙𝑖𝑎𝑑𝑜:* ${new Date().toLocaleDateString()}\n│𐇵 *𝐷𝑢𝑟𝑎𝑐𝑖𝑜𝑛:* ${size}\n│𐇵 *𝑉𝑖𝑠𝑡𝑎𝑠:* ${views}\n│𐇵 *𝐴𝑢𝑡𝑜𝑟:* ${author}\n│𐇵 *𝐼𝐷:* ${id}\n│𐇵 *𝑇𝑖𝑝𝑜:* video\n│𐇵 *𝐸𝑛𝑙𝑎𝑐𝑒:* ${urls[0]}\n│𐇵 *𝐶𝑎𝑛𝑎𝑙:* ${yt.channel}\n╰───────┈♢┈──────\n> *[ ℹ️ ] _𝐒𝐞 𝐞𝐬𝐭𝐚́ 𝐞𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐞𝐥 vídeo. 𝐞𝐬𝐩𝐞𝐫𝐞..._*`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, { quoted: fkontak })
             await m.react(done)
         } catch {
             await m.reply(`✘ *Ocurrió un error*`)
@@ -48,4 +48,4 @@ handler.customPrefix = /^(1|Video|video)/
 handler.command = new RegExp
 handler.register = true
 export default handler
-          
+            
