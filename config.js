@@ -225,7 +225,7 @@ global.rpg = {
       kambing: '🐐 Cabra',
       kerbau: '🐃 Búfalo',
       lion: '🦁 León',
-      money: '👾 LuffyCoins',
+      money: '👾 RubyCoins',
       monyet: '🐒 Mono',
       panda: '🐼 Panda',
       snake: '🐍 Serpiente',
