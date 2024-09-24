@@ -1,16 +1,9 @@
-import { createHash } from 'crypto'
-
-let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
-
-
-const canales = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
-
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
   
   if (user.registered === true) throw `*『✦』Ya estás registrado, para volver a registrarte, usa el comando: #unreg*`
-  if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.18*`
+  if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, úselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.18*`
 
   let [_, name, splitter, age] = text.match(Reg)
   
@@ -25,7 +18,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   user.name = name.trim()
   user.age = age
-  user.regTime = + new Date
+  user.regTime = +new Date
   user.registered = true
   global.db.data.users[m.sender].money += 600
   global.db.data.users[m.sender].estrellas += 10
@@ -37,7 +30,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
   let regbot = `╭─✦〘  𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗢 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗢 ✔️ 〙✦──╮
 ┊
-┊
 ┊🍚᷼⃞い》𝑁𝑜𝑚𝑏𝑟𝑒: ${name}
 ┊🌸⃞ᰰ𝆆ᣞ 》𝐸𝑑𝑎𝑑: ${age} *Años*
 ┊ ֪ ׂ🗡️ ̶ ׁ ֪ *>número de serie<*
@@ -47,8 +39,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ┊https://github.com/Dioneibi/Ruby-Hoshino
 ┊
 ┊🥳 *¡Bienvenido/a al equipo!*
-┊🗂️ *Utiliza* `.menu` *para explorar los comandos disponibles.*
-┊
+┊🗂️ *Utiliza* ${usedPrefix}menu *para explorar los comandos disponibles.*
 ┊
 ┊✨ *𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:*
 ┊15 🌟 Estrellas 
@@ -74,9 +65,3 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
     }
   }, { quoted: fkontak })
 }
-
-handler.help = ['reg']
-handler.tags = ['rg']
-handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
-
-export default handler
