@@ -18,7 +18,7 @@ let txt = `*Grupos*\n\n`
 
 let img = imagen1
 
-await conn.sendLuffy(m.chat, packname, wm, txt, img, img, redes, fkontak)
+await conn.sendRuby(m.chat, packname, wm, txt, img, img, redes, fkontak)
 } catch {
 await m.react(error)
 }}
