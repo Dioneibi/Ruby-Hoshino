@@ -39,6 +39,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ┊
 ┊
 ┊🍚᷼⃞い》𝑁𝑜𝑚𝑏𝑟𝑒: ${name}
+┊
 ┊🌸⃞ᰰ𝆆ᣞ 》𝐸𝑑𝑎𝑑: ${age} *Años*
 ┊ ֪ ׂ🗡️ ̶ ׁ ֪ *>número de serie<*
 ┊          
