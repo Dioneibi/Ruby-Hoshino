@@ -52,7 +52,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ┊
 ┊✨ *𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:*
 ┊15 🌟 Estrellas 
-┊ 5 🪙 yencoins
+┊ 5 🪙 Rubycoins
 ┊ 245 💸 Experiencia
 ┊ 12 💰 Tokens
 ╰─────────────  ✦ ⁺.
