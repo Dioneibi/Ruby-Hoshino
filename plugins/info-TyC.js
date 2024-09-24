@@ -18,8 +18,8 @@ global.terminos = `𝑺𝑴𝑺 𝑫𝑬𝑳 𝑪𝑹𝑬𝑨𝑫𝑶𝑹✨
 𝑪𝒐𝒏𝒕𝒂𝒄𝒕𝒂𝒏𝒐𝒔🚀
 
 ✫ ${global.creador}
-᯽ OfcDiego
+᯽ Dioneibi
 ✫ Correo electronico: 
-theluffybot@gmail.com
+ulcidecono@gmail.com
 
 ✰ ${global.packname}`;
