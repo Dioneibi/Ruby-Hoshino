@@ -197,7 +197,6 @@ readmore: readMore
           body: dev,
           thumbnailUrl: icono,
           sourceUrl: canales,
-          title: 'Ruby Hoshino',
           mediaType: 1,
           renderLargerThumbnail: false,
         },
