@@ -190,6 +190,7 @@ readmore: readMore
           newsletterJid: 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P',
           newsletterName: '『✯ Team Channe✯』',
           serverMessageId: -1,
+          title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
         },
         forwardingScore: 999,
         externalAdReply: {
