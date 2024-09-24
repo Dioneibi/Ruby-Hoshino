@@ -180,21 +180,25 @@ readmore: readMore
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
     let pp = join(__dirname, '../Menu.jpg') // Establecer la ruta de la imagen
-      conn.sendMessage(m.chat, {
-    text: regbot,
-    contextInfo: {
-      externalAdReply: {
-        title: '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰',
-        body: wm, 
-        thumbnailUrl: 'https://qu.ax/FGSG.jpg', 
-        sourceUrl: canales,
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true,
-      }
-    }
-  }, { quoted: fkontak })
-  }
+    await conn.sendMessage(m.chat, {
+      image: { url: pp },
+      caption: text.trim(),
+      contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P',
+          newsletterName: '『✯ Team Channe✯』',
+          serverMessageId: -1,
+        },
+        forwardingScore: 999,
+        externalAdReply: {
+          title: 'ᶻ 𝗓 𐰁✰ŕüḅÿ ħόşħίήό✰🦋⃤.ᐟ ֹ ₊ ꒱',
+          body: dev,
+          thumbnailUrl: icono,
+          sourceUrl: canales,
+          mediaType: 1,
+          renderLargerThumbnail: false,
         },
       },
     }, { quoted: m })
