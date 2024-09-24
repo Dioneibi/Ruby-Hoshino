@@ -47,7 +47,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ┊https://github.com/Dioneibi/Ruby-Hoshino
 ┊
 ┊🥳 *¡Bienvenido/a al equipo!*
-┊🗂️ *Utiliza* \`.menu *para explorar los comandos disponibles.*
+┊🗂️ *Utiliza* \`.menu\` *para explorar los comandos disponibles.*
 ┊
 ┊
 ┊✨ *𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:*
