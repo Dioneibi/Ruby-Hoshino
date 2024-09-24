@@ -14,15 +14,15 @@ let muptime = clockString(_muptime)
 const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) 
 const used = process.memoryUsage()
-let luffy = `╭─⬣「 *Estado De Luffy* 」⬣\n`
-luffy += `│ 🚩 *Creador ∙* OfcDiego\n`
-luffy += `│ 📚 *Grupos Unidos ∙* ${groupsIn.length}\n`
-luffy += `│ 👤 *Chats Privados ∙* ${chats.length - groupsIn.length}\n`
-luffy += `│ 💬 *Total De Chats ∙* ${chats.length}\n`
-luffy += `│ 🍟 *Usuarios Registrados ∙* ${totalreg}\n`
-luffy += `│ 🍭 *Grupos Registrados ∙* ${totalchats}\n`
-luffy += `│ 🕜 *Actividad ∙* ${muptime}\n`
-luffy += `╰─⬣`
+let Ruby = `╭─⬣「 *Estado De Ruby* 」⬣\n`
+Ruby += `│ 🚩 *Creador ∙* Dioneibi\n`
+Ruby += `│ 📚 *Grupos Unidos ∙* ${groupsIn.length}\n`
+Ruby += `│ 👤 *Chats Privados ∙* ${chats.length - groupsIn.length}\n`
+Ruby += `│ 💬 *Total De Chats ∙* ${chats.length}\n`
+Ruby += `│ 🍟 *Usuarios Registrados ∙* ${totalreg}\n`
+Ruby += `│ 🍭 *Grupos Registrados ∙* ${totalchats}\n`
+Ruby += `│ 🕜 *Actividad ∙* ${muptime}\n`
+Ruby += `╰─⬣`
 await conn.sendFile(m.chat, pp, 'luffy.jpg', luffy, fkontak, null, rcanal)
 }
 handler.help = ['status']
