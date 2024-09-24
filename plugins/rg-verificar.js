@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 
-const canales = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
+const canal = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
