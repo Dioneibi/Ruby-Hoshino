@@ -23,7 +23,7 @@ Ruby += `│ 🍟 *Usuarios Registrados ∙* ${totalreg}\n`
 Ruby += `│ 🍭 *Grupos Registrados ∙* ${totalchats}\n`
 Ruby += `│ 🕜 *Actividad ∙* ${muptime}\n`
 Ruby += `╰─⬣`
-await conn.sendFile(m.chat, pp, 'luffy.jpg', luffy, fkontak, null, rcanal)
+await conn.sendFile(m.chat, pp, 'Ruby.jpg', Ruby, fkontak, null, rcanal)
 }
 handler.help = ['status']
 handler.tags = ['info']
