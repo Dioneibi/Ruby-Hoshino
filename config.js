@@ -58,7 +58,7 @@ global.comunidad1 = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
 global.channel = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD' 
 global.channel2 = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
 global.yt = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
-global.md = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
+global.md = 'https://github.com/Dioneibi/Ruby-Hoshino'
 global.fb = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
 global.tiktok = 'https://github.com/Dioneibi/Tatsumaki-Bot-MD'
 
