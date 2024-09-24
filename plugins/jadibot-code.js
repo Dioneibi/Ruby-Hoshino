@@ -34,7 +34,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner, isPrems, isR
             fs.writeFileSync(`RubyJadiBot/creds.json`, Buffer.from(args[0], 'base64').toString('utf-8'));
         }
 
-        const { state, saveState, saveCreds } = await useMultiFileAuthState(`./vermeilJadiBot/${authFolderB}`);
+        const { state, saveState, saveCreds } = await useMultiFileAuthState(`./RubyJadiBot/${authFolderB}`);
         const msgRetryCounterCache = new NodeCache();
         const { version } = await fetchLatestBaileysVersion();
         let phoneNumber = m.sender.split('@')[0];
