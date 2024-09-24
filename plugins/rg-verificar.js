@@ -22,24 +22,29 @@ global.db.data.users[m.sender].exp += 245
 global.db.data.users[m.sender].joincount += 5
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)        
 m.react('📩') 
-let regbot = `👤 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗢 👤
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-「💭」𝗡𝗼𝗺𝗯𝗿𝗲: ${name}
-「✨️」𝗘𝗱𝗮𝗱: ${age} años
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-「🎁」𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:
-• 15 Estrellas 🌟
-• 5 vermeilCoins 🪙
-• 245 Experiencia 💸
-• 12 Tokens 💰
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-• *magia:*
-• *tipo de magia :* no tiene
-• *mana :* 20/20
-• *rango :* f
-• *nivel :* 1
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-${packname}`
+let regbot = `╭─✦〘  𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗢 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗢 ✔️ 〙✦──╮
+┊
+┊
+┊🍚᷼⃞い》𝑁𝑜𝑚𝑏𝑟𝑒: ${name}
+┊🌸⃞ᰰ𝆆ᣞ 》𝐸𝑑𝑎𝑑: ${age} *Años*
+┊ ֪ ׂ🗡️ ̶ ׁ ֪ *>número de serie<*
+┊          ${sn}
+┊
+┊💻 *𝚁epo𝚂𝙸𝚃𝙾𝚁𝙸𝙾* *𝙶𝙸𝚃𝙷𝚄𝙱:* 
+┊https://github.com/Dioneibi/Ruby-Hoshino
+┊
+┊🥳 *¡Bienvenido/a al equipo!*
+┊🗂️ *Utiliza* `.menu` *para explorar los comandos disponibles.*
+┊
+┊
+┊✨ *𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:*
+┊15 🌟 Estrellas 
+┊ 5 🪙 yencoins
+┊ 245 💸 Experiencia
+┊ 12 💰 Tokens
+╰─────────────  ✦ ⁺.
+> 🎈 ¡Muchísimas gracias por usar a Ruby-Hoshino! 
+> Recuerda seguirme en mi canal para que no te pierdas nada de las novedades del bot. ¡Diviértete!`
 await conn.sendLuffy(m.chat, '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰', textbot, regbot, imagen1, imagen1, canales, m)
 //await m.reply(`${sn}`)        
 }
@@ -48,3 +53,4 @@ handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
 
 export default handler
+  
