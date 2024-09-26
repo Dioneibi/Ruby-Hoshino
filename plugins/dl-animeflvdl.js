@@ -1,5 +1,6 @@
 // ESTE CODIGO COMO LA API FUE ECHO POR GABRIEL CURI, SI VAS USAR EL PLUGIN DAME CREDITOS CRACK 
 // Hablando firme dame credito p :V
+// ya we por favor no lo tumbes ;v créditos a Gabriel curi :)
 import { File } from 'megajs';
 import path from 'path';
 import fetch from 'node-fetch';
@@ -54,7 +55,7 @@ function formatBytes(bytes) {
 }
 
 handler.help = ['animedl <anime-id> <episode-number>'];
-handler.tags = ['downloader'];
+handler.tags = ['Descarga'];
 handler.command = ['animedl', 'animeflvdl', 'anidl'];
 handler.register = true
 
