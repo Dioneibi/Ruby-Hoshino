@@ -30,7 +30,7 @@ _Utilice "comandos" para enviarle los comandos uno por uno 🚩_`;
                 title: "Instalación de Ruby-Hoshino",
                 body: "Comienza a instalar el bot",
                 mediaType: 1,
-                thumbnailUrl: 'https://path_to_image', // Puedes cambiar esta URL por la miniatura que prefieras
+                thumbnailUrl: 'https://qu.ax/PqHh.jpg', // Puedes cambiar esta URL por la miniatura que prefieras
                 sourceUrl: 'https://github.com/Dioneibi/Ruby-Hoshino'
             }
         }
