@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-    // Array con los comandos de instalación que se enviarán uno por uno
+    
     let comandos = [
         'termux-setup-storage',
         'apt-get update -y && apt-get upgrade -y',
