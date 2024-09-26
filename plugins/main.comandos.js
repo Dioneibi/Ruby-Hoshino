@@ -15,7 +15,7 @@ let handler = async (m, { conn }) => {
     await conn.reply(m.chat, textoInicial, m);
 
     // Función para enviar los comandos uno por uno con un intervalo de 5 segundos
-    for (let i = 0; i < comandos.length; i) {
+    for (let i = 0; i < comandos.length; i++) {
         setTimeout(() => {
             conn.reply(m.chat, ${comandos[i]}, m);
         }, i * 5000); // Intervalo de 5 segundos entre cada comando (5000 milisegundos)
