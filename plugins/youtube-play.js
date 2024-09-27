@@ -3,6 +3,8 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import yts from 'yt-search'
 import fetch from 'node-fetch' 
 
+const canal = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
+
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     let lister = [
         "mp3",
