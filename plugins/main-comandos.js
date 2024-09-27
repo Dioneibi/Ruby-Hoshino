@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-    
+    // Array con los comandos de instalación que se enviarán uno por uno
     let comandos = [
         'termux-setup-storage',
         'apt-get update -y && apt-get upgrade -y',
@@ -17,7 +17,7 @@ let handler = async (m, { conn }) => {
     // Función para enviar los comandos uno por uno con un intervalo de 5 segundos
     for (let i = 0; i < comandos.length; i++) {
         setTimeout(() => {
-            conn.reply(m.chat, ${comandos[i]}, m);
+            conn.reply(m.chat, `${i + 1}:\n${comandos[i]}`, m);
         }, i * 5000); // Intervalo de 5 segundos entre cada comando (5000 milisegundos)
     }
 }
