@@ -10,8 +10,8 @@ const completadoImage = './src/completado.jpg';
 
 const obtenerDatos = () => {
     try {
-        if (fs.existsSync('./src/JSON/characters.json')) {
-            return JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+        if (fs.existsSync('./src/JSON/data.json')) {
+            return JSON.parse(fs.readFileSync('./src/JSON/data.json', 'utf-8'));
         } else {
             return {
                 'usuarios': {},
@@ -29,7 +29,7 @@ const obtenerDatos = () => {
 
 const guardarDatos = (datos) => {
     try {
-        fs.writeFileSync('data.json', JSON.stringify(datos, null, 2));
+        fs.writeFileSync('./src/JSON/data.json', JSON.stringify(datos, null, 2));
     } catch (error) {
         console.error('✧ Error al escribir en data.json:', error);
     }
@@ -85,19 +85,12 @@ let handler = async (message, { conn }) => {
         };
 
         if (!verificarBot()) {
-            await conn.sendMessage(message.chat, '✧ Este comando solo es disponible en Ruby-Hoshino\n◇ https://github.com/Dioneibi/Ruby-Hoshino', message, rcanal);
+            await conn.sendMessage(message.chat, { text: '✧ Este comando solo es disponible en Ruby-Hoshino\n◇ https://github.com/Dioneibi/Ruby-Hoshino' });
             return;
         }
 
         let datos = obtenerDatos();
         let personajes = obtenerPersonajes();
-
-        // Resto del código...
-    } catch (error) {
-        console.error('Error:', error);
-    }
-    };
-}
 
         let personajeDisponible = personajes.find(p => !datos.personajesReservados.some(reservado => reservado.nombre === p.nombre));
 
@@ -135,6 +128,4 @@ let handler = async (message, { conn }) => {
 handler.command = /^rw$/i;
 
 export default handler;
-
-
-        
+    
