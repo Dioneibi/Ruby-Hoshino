@@ -64,8 +64,8 @@ const handler = async (message, { conn }) => {
         const verificarComandoValido = () => {
             try {
                 const packageData = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-                if (packageData.name !== 'YaemoriBot-MD') return false;
-                if (packageData.repository.url !== 'git+https://github.com/Dev-Diego/YaemoriBot-MD.git') return false;
+                if (packageData.name !== 'Ruby-Hoshino') return false;
+                if (packageData.repository.url !== 'git+https://github.com/Dioneibi/Ruby-Hoshino.git') return false;
                 return true;
             } catch (error) {
                 console.error('✧ Error al leer package.json:', error);
@@ -74,7 +74,7 @@ const handler = async (message, { conn }) => {
         };
 
         if (!verificarComandoValido()) {
-            await conn.sendMessage(message.chat, '✧ Este comando solo es disponible en YaemoriBot-MD\n◇ https://github.com/Dev-Diego/YaemoriBot-MD', message, rcanal);
+            await conn.sendMessage(message.chat, '✧ Este comando solo es disponible en Ruby-Hoshino\n◇ https://github.com/Dioneibi/Ruby-Hoshino', message, rcanal);
             return;
         }
 
