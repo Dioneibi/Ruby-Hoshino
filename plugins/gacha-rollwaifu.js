@@ -100,10 +100,3 @@ const handler = async (message, { conn }) => {
         console.error('Error:', error);
     }
 };
-
-handler.help = ['gacha'];
-handler.tags = ['rollwaifu'];
-handler.command = ['rollwaifu'];
-handler.register = true;
-
-export default handler;
