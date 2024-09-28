@@ -4,24 +4,32 @@
 */
 
 import fs from 'fs';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const completadoImage = './src/completado.jpg';
 
 const obtenerDatos = () => {
     try {
-        return fs.existsSync('./src/JSON/characters.json') ? 
-            JSON.parse(fs.readFileSync('data.json', 'utf-8')) : 
-            { 'usuarios': {}, 'personajesReservados': [] };
+        if (fs.existsSync('./src/JSON/characters.json')) {
+            return JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+        } else {
+            return {
+                'usuarios': {},
+                'personajesReservados': []
+            };
+        }
     } catch (error) {
         console.error('✧ Error al leer data.json:', error);
-        return { 'usuarios': {}, 'personajesReservados': [] };
+        return {
+            'usuarios': {},
+            'personajesReservados': []
+        };
     }
 };
 
-const guardarDatos = (data) => {
+const guardarDatos = (datos) => {
     try {
-        fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+        fs.writeFileSync('data.json', JSON.stringify(datos, null, 2));
     } catch (error) {
         console.error('✧ Error al escribir en data.json:', error);
     }
@@ -29,7 +37,10 @@ const guardarDatos = (data) => {
 
 const reservarPersonaje = (userId, personaje) => {
     let datos = obtenerDatos();
-    datos.personajesReservados.push({ 'userId': userId, ...personaje });
+    datos['personajesReservados'].push({
+        'userId': userId,
+        ...personaje
+    });
     guardarDatos(datos);
 };
 
@@ -44,28 +55,28 @@ const obtenerPersonajes = () => {
 
 let cooldowns = {};
 
-const handler = async (message, { conn }) => {
+let handler = async (message, { conn }) => {
     try {
-        let sender = message.sender;
+        let userId = message.sender;
         let currentTime = new Date().getTime();
-        let cooldownTime = 10 * 60 * 1000;  // 10 minutos
-        let lastUsed = cooldowns[sender] || 0;
-        let timeSinceLastUse = currentTime - lastUsed;
+        let cooldownTime = 10 * 60 * 1000; // 10 minutos en milisegundos
+        let lastUseTime = cooldowns[userId] || 0;
+        let timeSinceLastUse = currentTime - lastUseTime;
 
         if (timeSinceLastUse < cooldownTime) {
             let remainingTime = cooldownTime - timeSinceLastUse;
-            let minutesLeft = Math.floor(remainingTime / (1000 * 60));
-            let secondsLeft = Math.floor((remainingTime % (1000 * 60)) / 1000);
-            let cooldownMessage = `《✧》Debes esperar *${minutesLeft} minutos ${secondsLeft} segundos* para usar *#rw* de nuevo.`;
+            let minutes = Math.floor(remainingTime / (1000 * 60));
+            let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+            let cooldownMessage = `《✧》Debes esperar *${minutes} minutos ${seconds} segundos* para usar *#rw* de nuevo.`;
             await conn.sendMessage(message.chat, { 'text': cooldownMessage });
             return;
         }
 
-        const verificarComandoValido = () => {
+        const verificarBot = () => {
             try {
-                const packageData = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-                if (packageData.name !== 'Ruby-Hoshino') return false;
-                if (packageData.repository.url !== 'git+https://github.com/Dioneibi/Ruby-Hoshino.git') return false;
+                const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+                if (packageJson.name !== 'Ruby-Hoshino') return false;
+                if (packageJson.repository.url !== 'git+https://github.com/Dioneibi/Ruby-Hoshino.git') return false;
                 return true;
             } catch (error) {
                 console.error('✧ Error al leer package.json:', error);
@@ -73,7 +84,7 @@ const handler = async (message, { conn }) => {
             }
         };
 
-        if (!verificarComandoValido()) {
+        if (!verificarBot()) {
             await conn.sendMessage(message.chat, '✧ Este comando solo es disponible en Ruby-Hoshino\n◇ https://github.com/Dioneibi/Ruby-Hoshino', message, rcanal);
             return;
         }
@@ -81,22 +92,49 @@ const handler = async (message, { conn }) => {
         let datos = obtenerDatos();
         let personajes = obtenerPersonajes();
 
-        if (!personajes.length) {
-            await conn.sendMessage(message.chat, '《✧》Felicidades, todos los personajes han sido obtenidos. ¡Pronto habrá más waifus para recolectar!');
+        // Resto del código...
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    };
+}
+
+        let personajeDisponible = personajes.find(p => !datos.personajesReservados.some(reservado => reservado.nombre === p.nombre));
+
+        if (!personajeDisponible) {
+            await conn.sendMessage(message.chat, { text: '《✧》Lo siento, ya no hay personajes disponibles.' });
             return;
         }
 
-        let personajeObtenido = personajes[Math.floor(Math.random() * personajes.length)];
-        reservarPersonaje(sender, personajeObtenido);
+        let nombrePersonaje = personajeDisponible.nombre;
+        let imagenPersonaje = personajeDisponible.imagen;
+        let descripcionPersonaje = personajeDisponible.descripcion;
 
-        cooldowns[sender] = currentTime;
+        let mensaje = `
+《✧》*Personaje Reservado*:
+◇ Nombre: ${nombrePersonaje}
+◇ Descripción: ${descripcionPersonaje}
 
-        await conn.sendMessage(message.chat, {
-            image: { url: completadoImage },
-            caption: `┏━━━━━━━━━⪩\n┃˚₊ · ͟͟͞͞➳❥ FELICIDADES\n┃⏤͟͟͞͞PERSONAJE OBTENIDO\n┗━━━━━━━━━⪩\n\n✰ Nombre:\n> » *${personajeObtenido.name}*\n\n*✰ Identificación:*\n<id: ${uuid()}>\n\n✰ Valor:\n> » *WFCoins*!`
-        }, 'PHOTO');
+《✧》Has reservado este personaje. ¡Disfruta!`;
+
+        reservarPersonaje(userId, personajeDisponible);
+
+        await conn.sendMessage(message.chat, { image: { url: imagenPersonaje }, caption: mensaje });
+
+        cooldowns[userId] = currentTime; // Registrar el tiempo de uso del comando para el usuario
+
+        // Enviar imagen de "completado"
+        await conn.sendMessage(message.chat, { image: { url: completadoImage }, caption: '《✧》Tu reserva ha sido completada.' });
+
     } catch (error) {
-        await conn.sendMessage(message.chat, '《✧》Ocurrió un error al procesar tu solicitud. Intenta de nuevo más tarde.');
-        console.error('Error:', error);
+        console.error('✧ Error:', error);
+        await conn.sendMessage(message.chat, { text: '《✧》Ha ocurrido un error, por favor intenta nuevamente más tarde.' });
     }
 };
+
+handler.command = /^rw$/i;
+
+export default handler;
+
+
+        
