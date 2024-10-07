@@ -175,7 +175,7 @@ m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
 user.prue = new Date * 1  
 }
 handler.help = ['doxear']
-handler.tags = ['juegos']
+handler.tags = ['fun']
 handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i
 handler.group = true
 //handler.register = true
