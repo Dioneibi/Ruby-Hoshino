@@ -174,7 +174,7 @@ Sof02s32inf14.1e100.net
 m.reply(doxeo, null, { mentions: conn.parseMention(doxeo) })
 user.prue = new Date * 1  
 }
-handler.help = ['doxxear']
+handler.help = ['doxxear *tag*']
 handler.tags = ['fun']
 handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxeame|doxeame/i
 handler.group = true
