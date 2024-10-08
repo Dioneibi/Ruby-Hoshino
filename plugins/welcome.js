@@ -32,4 +32,4 @@ client.ev.on('group-participants.update', async (update) => {
 });
 
 // Añade el link de tu imagen aquí
-const imageLink = 'https://link-a-tu-imagen.jpg';
+const imageLink = 'https://qu.ax/mzJtu.jpg';
