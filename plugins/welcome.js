@@ -1,64 +1,35 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys';
-import fetch from 'node-fetch';
+const { WAMessageProto } = require('@whiskeysockets/baileys');
+const Database = require('./database.js'); // Asegúrate de cargar tu base de datos si es necesario
 
-export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return true;
+async function handleNewParticipant(chat, newParticipants) {
+    for (const participant of newParticipants) {
+        const participantId = participant.split('@')[0]; // Obtener el ID sin el dominio
+        const welcomeMessage = `
+╭───────┈♡┈──────
+  ¡Bienvenido/a @${participantId}! 🎉
+  Nos alegra que te unas al grupo.
+  
+  Asegúrate de leer las reglas y diviértete.
+  
+  📸 Aquí tienes una imagen de bienvenida: 
+  [Link de la imagen]
+╰───────┈♢┈──────
+        `;
+        
+        // Enviar el mensaje de bienvenida al grupo
+        await chat.sendMessage(participant, { text: welcomeMessage, mentions: [participant] });
+    }
+}
 
-  let vn = 'https://qu.ax/cTDa.mp3';
-  let vn2 = 'https://qu.ax/xynz.mp3';
-  let welc = welcome;
-  let adi = adios;
-  let chat = global.db.data.chats[m.chat];
-  const getMentionedJid = () => {
-    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
-  };
+// Detectar cuando un nuevo miembro se une
+client.ev.on('group-participants.update', async (update) => {
+    const { id, participants, action } = update;
+    
+    if (action === 'add') { // Si alguien es añadido al grupo
+        const chat = await client.groupMetadata(id); // Obtener los metadatos del grupo
+        await handleNewParticipant(chat, participants);
+    }
+});
 
-  let who = m.messageStubParameters[0] + '@s.whatsapp.net';
-  let user = global.db.data.users[who];
-
-  let userName = user ? user.name : await conn.getName(who);
-
-  if (chat.welcome && m.messageStubType === 27) {
-    this.sendMessage(m.chat, {
-      audio: { url: vn },
-      contextInfo: {
-        mentionedJid: getMentionedJid(),
-        "externalAdReply": {
-          "thumbnail": welc,
-          "title": "  ͟͞ Ｗ Ｅ Ｌ Ｃ Ｏ Ｍ Ｅ ͟͞  ",
-          "body": `${userName}!`,
-          "previewType": "PHOTO",
-          "thumbnailUrl": null,
-          "showAdAttribution": true,
-          sourceUrl: [yt, md, channel].sort(() => 0.5 - Math.random())[0]
-        }
-      },
-      ptt: true,
-      mimetype: 'audio/mpeg',
-      fileName: 'welcome.mp3'
-    }, { quoted: fkontak });
-  }
-
-  if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
-    this.sendMessage(m.chat, {
-      audio: { url: vn2 },
-      contextInfo: {
-        mentionedJid: getMentionedJid(),
-        "externalAdReply": {
-        "thumbnail": adi,
-        "title": '  ͟͞ Ａ Ｄ Ｉ Ｏ Ｓ ͟͞  ',
-        "body": `${userName}, se despide.`,
-        "previewType": "PHOTO",
-          "showAdAttribution": true,
-          "containsAutoReply": true,
-         "thumbnailUrl": null,
-          "showAdAttribution": true,
-          "sourceUrl": redes
-        }
-      },
-      ptt: true,
-      mimetype: 'audio/mpeg',
-      fileName: 'bye.mp3'
-    }, { quoted: fkontak });
-  }
-            }
+// Añade el link de tu imagen aquí
+const imageLink = 'https://link-a-tu-imagen.jpg';
