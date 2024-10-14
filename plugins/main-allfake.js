@@ -107,7 +107,7 @@ global.rcanal = {
 contextInfo: {
 isForwarded: false,
 forwardedNewsletterMessageInfo: {
-newsletterJid: "0029VakLbM76mYPPFL0IFI3P@newsletter",
+newsletterJid: "120363335626706839@newsletter",
 serverMessageId: 100,
 newsletterName: 'Ruby-Hoshino Bot Channel 🚩',
 },
