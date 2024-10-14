@@ -67,9 +67,11 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
         showAdAttribution: true,
         renderLargerThumbnail: true,
       },
-        forwardedNewsletterMessageInfo: {
+     
+    forwardedNewsletterMessageInfo: {
       newsletterJid: '120363335626706839@newsletter',
       newsletterName: '⛦『 ✎𝐓͢ᴇ𝙖፝ᴍ⃨ 𝘾𝒉꯭𝐚𝑛𝑛𝒆𝑙 𝑹ᴜ⃛ɓ𝑦-𝑯ᴏ⃔𝒔𝑯𝙞꯭𝑛⃡𝒐✎ 』⛦'
+      serverMessageId: -1,
     }
   }, { quoted: fkontak })
 }
