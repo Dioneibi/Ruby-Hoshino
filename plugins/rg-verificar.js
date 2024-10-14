@@ -2,7 +2,6 @@ import { createHash } from 'crypto'
 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
-const canal = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
@@ -64,7 +63,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
         title: '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰',
         body: wm, 
         thumbnailUrl: 'https://qu.ax/FGSG.jpg', 
-        sourceUrl: canal,
         mediaType: 1,
         showAdAttribution: true,
         renderLargerThumbnail: true,
