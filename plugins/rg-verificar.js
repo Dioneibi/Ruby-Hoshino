@@ -2,7 +2,6 @@ import { createHash } from 'crypto'
 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
-
 const canal = 'https://chat.whatsapp.com/J7j9IlFhxbr809Urhu5KPJ';
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
@@ -49,7 +48,6 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 ┊🥳 *¡Bienvenido/a al equipo!*
 ┊🗂️ *Utiliza* \`.menu\` *para explorar los comandos disponibles.*
 ┊
-┊
 ┊✨ *𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:*
 ┊15 🌟 Estrellas 
 ┊ 5 🪙 Rubycoins
@@ -65,12 +63,14 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
       externalAdReply: {
         title: '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰',
         body: wm, 
-        pp: imagen1, 
-        sourceUrl: canales,
+        thumbnailUrl: 'https://qu.ax/FGSG.jpg', 
+        sourceUrl: canal,
         mediaType: 1,
         showAdAttribution: true,
         renderLargerThumbnail: true,
-      }
+      },
+      newsletterJid: '120363335626706839@newsletter',
+      newsletterName: '⛦『 ✎𝐓͢ᴇ𝙖፝ᴍ⃨ 𝘾𝒉꯭𝐚𝑛𝑛𝒆𝑙 𝑹ᴜ⃛ɓ𝑦-𝑯ᴏ⃔𝒔𝑯𝙞꯭𝑛⃡𝒐✎ 』⛦'
     }
   }, { quoted: fkontak })
 }
@@ -80,4 +80,3 @@ handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
 
 export default handler
-  
