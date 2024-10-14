@@ -187,8 +187,8 @@ readmore: readMore
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: 'https://whatsapp.com/channel/0029VakLbM76mYPPFL0IFI3P',
-          newsletterName: '『✯ Team Channe✯』',
+          newsletterJid: '120363335626706839@newsletter',
+          newsletterName: '『✯ Team Channel Ruby-Hoshino ✯』',
           serverMessageId: -1,
         },
         forwardingScore: 999,
