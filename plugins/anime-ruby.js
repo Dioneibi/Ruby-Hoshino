@@ -1,34 +1,31 @@
 import axios from 'axios';
 
-const handler = async (m, {command, conn, usedPrefix}) => {
-    try {
-        // Realizamos una búsqueda de imágenes de Ruby Hoshino usando una API de imágenes aleatorias
-        const query = 'Ruby Hoshino anime';
-        const res = await axios.get(`https://api.qwant.com/v3/search/images`, {
-            params: {
-                count: 10,
-                q: query,
-                t: 'images',
-                safesearch: 1,
-                locale: 'en_US',
-                offset: 1,
-                device: 'desktop'
-            }
-        });
+const handler = async (m, { command, conn }) => {
+  try {
+    // Hacer una solicitud a la API de DuckDuckGo para buscar imágenes de Ruby Hoshino
+    const res = await axios.get('https://duckduckgo.com/i.js', {
+      params: {
+        q: 'Ruby Hoshino',
+        format: 'json',
+      }
+    });
 
-        // Seleccionamos una imagen al azar del resultado
-        const images = res.data.data.result.items;
-        const randomImage = images[Math.floor(Math.random() * images.length)].media;
+    // Tomar una imagen aleatoria de los resultados
+    const imageList = res.data.results;
+    const randomImage = imageList[Math.floor(Math.random() * imageList.length)].image;
 
-        // Enviamos la imagen al chat
-        await conn.sendFile(m.chat, randomImage, 'ruby-hoshino.jpg', '🌟 Aquí tienes una imagen de Ruby Hoshino 🌟', m, null, rcanal);
-    } catch (error) {
-        console.error(error);
-        await conn.reply(m.chat, '⚠️ No se pudo obtener una imagen en este momento. Inténtalo más tarde.', m);
-    }
+    // Enviar la imagen al chat
+    await conn.sendFile(m.chat, randomImage, 'rubyhoshino.jpg', 'Aquí tienes una imagen de Ruby Hoshino!', m, null, rcanal);
+
+  } catch (error) {
+    console.error(error);
+    // Enviar un mensaje de error si algo sale mal
+    await conn.reply(m.chat, 'Lo siento, no pude encontrar una imagen de Ruby Hoshino.', m);
+  }
 };
 
-handler.command = handler.help = ['ruby'];
+handler.command = ['rubyhoshino'];
 handler.tags = ['anime'];
+handler.help = ['rubyhoshino'];
 
 export default handler;
