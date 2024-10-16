@@ -55,21 +55,7 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 > 🎈 ¡Muchísimas gracias por usar a Ruby-Hoshino! 
 > Recuerda seguirme en mi canal para que no te pierdas nada de las novedades del bot. ¡Diviértete!`
 
-  conn.sendMessage(m.chat, {
-    text: regbot,
-    contextInfo: {
-      externalAdReply: {
-        title: '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰',
-        body: wm, 
-        thumbnailUrl: 'https://qu.ax/FGSG.jpg', 
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true,
-      },
-      forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363335626706839@newsletter',
-        newsletterName: '⛦『 ✎𝐓͢ᴇ𝙖፝ᴍ⃨ 𝘾𝒉꯭𝐚𝑛𝑛𝒆𝑙 𝑹ᴜ⃛ɓ𝑦-𝑯ᴏ⃔𝒔𝑯𝙞꯭𝑛⃡𝒐✎ 』⛦',
-        serverMessageId: '-1',
+await conn.sendAi(m.chat, img, canal, estilo)
       }
     }
   }, { quoted: fkontak })
